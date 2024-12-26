@@ -9,7 +9,7 @@ const UnauthedRoot = () => {
 		<Routes>
 			<Route path="/" element={<Navigate to={"/dashboard"} />} />
 			{unauthed_routes.map(({ id, element, hasChild, children, ...rest }) => (
-				<Route key={id} {...rest} element={element as JSX.Element}>
+				<Route key={id} {...rest} element={element as any}>
 					{hasChild && renderNestedRoute(children)}
 				</Route>
 			))}

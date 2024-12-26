@@ -31,7 +31,9 @@ export const SideBar: FC = () => {
 						src="https://i.pravatar.cc/150?u=a04258114e29026302d"
 					/>
 					{!sidenav.isFixed && (
-						<h1 className="text-white text-2xl pl-2 font-bold whitespace-nowrap">Admin Panel</h1>
+						<h1 className="text-white text-2xl pl-2 font-bold whitespace-nowrap">
+							Admin Panel
+						</h1>
 					)}
 				</div>
 

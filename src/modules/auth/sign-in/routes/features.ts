@@ -8,59 +8,59 @@ import { SignInData, SignInForm } from "../model";
 type ON_SUBMIT = (T: SignInForm) => Promise<void>;
 
 type SignInFeatures = {
-  onSubmit: ON_SUBMIT;
+	onSubmit: ON_SUBMIT;
 };
 
 export const useSignInFeatures = (): SignInFeatures => {
-  const dispatch = useReduxDispatch();
-  const { rememberMe, auth } = useReduxSelector(({ signIn }) => signIn);
-  const { functionInvoke } = useHttpRequest();
-  const signIn = useSignIn();
+	const dispatch = useReduxDispatch();
+	const { rememberMe, auth } = useReduxSelector(({ signIn }) => signIn);
+	const { functionInvoke } = useHttpRequest();
+	const signIn = useSignIn();
 
-  const rememberMeController = () => {
-    rememberMe
-      ? localStorage.setItem("rememberMe", JSON.stringify(auth))
-      : localStorage.removeItem("rememberMe");
-  };
+	const rememberMeController = () => {
+		rememberMe
+			? localStorage.setItem("rememberMe", JSON.stringify(auth))
+			: localStorage.removeItem("rememberMe");
+	};
 
-  const onSubmit: ON_SUBMIT = async (value) => {
-    if (!value.phone || !value.password || auth?.status === "loading") return;
+	const onSubmit: ON_SUBMIT = async (value) => {
+		if (!value.phone || !value.password || auth?.status === "loading") return;
 
-    dispatch(setAuth({ status: "loading" }));
+		dispatch(setAuth({ status: "loading" }));
 
-    const { data, error } = await functionInvoke<SignInData>({
-      functionName: "auth/signin",
-      method: "POST",
-      body: {
-        phone: value?.phone,
-        password: value?.password,
-      },
-    });
-    if (error) {
-      dispatch(setAuth({ status: "error" }));
-      toast.error(error);
-    } else {
-      signIn({
-        auth: {
-          token: String(data?.jwt),
-          type: "Bearer",
-        },
-        userState: {
-          id: String(data?.id),
-          phone: String(data?.phone),
-          roles: data?.roles,
-        },
-      });
+		const { data, error } = await functionInvoke<SignInData>({
+			functionName: "auth/signin",
+			method: "POST",
+			body: {
+				phone: value?.phone,
+				password: value?.password,
+			},
+		});
+		if (error) {
+			dispatch(setAuth({ status: "error" }));
+			toast.error(error);
+		} else {
+			signIn({
+				auth: {
+					token: String(data?.jwt),
+					type: "Bearer",
+				},
+				userState: {
+					id: String(data?.id),
+					phone: String(data?.phone),
+					roles: data?.roles,
+				},
+			});
 
-      rememberMeController();
+			rememberMeController();
 
-      toast.success("Successfully logged in");
-      dispatch(setAuth({ status: "initial" }));
-      window.location.assign(window.location.origin);
-    }
-  };
+			toast.success("Successfully logged in");
+			dispatch(setAuth({ status: "initial" }));
+			window.location.assign(window.location.origin);
+		}
+	};
 
-  return {
-    onSubmit,
-  };
+	return {
+		onSubmit,
+	};
 };

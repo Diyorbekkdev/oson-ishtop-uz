@@ -1,8 +1,8 @@
 import RequireAuth from "@auth-kit/react-router/RequireAuth";
+import { JSX } from "react";
 import { Route } from "react-router-dom";
 import { useAuth } from "./configs/auth";
 import { TRoutes } from "./types/routes";
-import { JSX } from "react";
 
 type MainFeatures = {
 	renderNestedRoute: (children: TRoutes["children"]) => any;

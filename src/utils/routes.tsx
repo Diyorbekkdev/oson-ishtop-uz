@@ -8,14 +8,14 @@ import { TRoutes } from "@/types/routes";
 export const routes: TRoutes[] = [...AddManagementRoute];
 
 export const unauthed_routes: TRoutes[] = [
-  ...SignInRoute,
-  ...SignUpRoute,
-  ...ResetPasswordRoute,
-  {
-    path: "*",
-    element: <ComingSoon />,
-    id: 6,
-  },
+	...SignInRoute,
+	...SignUpRoute,
+	...ResetPasswordRoute,
+	{
+		path: "*",
+		element: <ComingSoon />,
+		id: 6,
+	},
 ];
 
 export default routes;

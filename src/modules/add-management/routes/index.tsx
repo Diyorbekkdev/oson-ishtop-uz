@@ -18,8 +18,6 @@ export const AddManagementRoute = [
 			"barman",
 			"runner",
 		],
-		children: [
-		
-		],
+		children: [],
 	},
 ];

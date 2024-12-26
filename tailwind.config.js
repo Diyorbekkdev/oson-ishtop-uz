@@ -2,13 +2,13 @@ const { nextui } = require("@nextui-org/theme");
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|button|calendar|card|date-picker|divider|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js"
-  ],
+	content: [
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
+		"./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|button|calendar|card|date-picker|divider|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js",
+	],
 	theme: {
 		extend: {
 			colors: {
