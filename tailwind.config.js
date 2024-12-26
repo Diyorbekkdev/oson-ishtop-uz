@@ -7,7 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
-		"./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|button|calendar|card|date-picker|divider|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js",
+		"./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|button|calendar|card|chip|date-picker|divider|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js",
 	],
 	theme: {
 		extend: {

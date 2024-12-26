@@ -1,13 +1,28 @@
 import { useAuth } from "@/configs/auth";
+import { useHttpRequest } from "@/hooks/useHttpRequest";
+import { QueryResult, TUser } from "@/types";
+import { USER } from "@/types/enums/general";
+import { useQuery } from "@tanstack/react-query";
 
 type TGeneralService = {
-	user_role: string;
+	user: QueryResult<TUser>;
 };
 
 export const useGeneralService = (): TGeneralService => {
-	const { user } = useAuth();
-	const user_role = String(user?.role);
+	const { functionInvoke } = useHttpRequest();
+
+	const user = useQuery({
+		queryKey: [USER.GET_USER],
+		queryFn: async () => {
+			const { data } = await functionInvoke<{ data: TUser }>({
+				functionName: USER.GET_USER,
+				method: "GET",
+			});
+			return data?.data;
+		},
+	});
+
 	return {
-		user_role,
+		user,
 	};
 };

@@ -1,4 +1,3 @@
-import { useSearchParams } from "@/hooks/useSearchParams";
 import { ADD_MANAGEMENT_FORM } from "@/modules/add-management/model";
 import { updateAddSchema } from "@/modules/add-management/model/validations";
 import { useAddManagementModals } from "@/modules/add-management/store";
@@ -21,7 +20,6 @@ export const Update = () => {
 	const {
 		onUpdate: { mutateAsync, isPending },
 	} = useCreateAddFeatures();
-	const { clearParams } = useSearchParams();
 
 	const form = useForm<ADD_MANAGEMENT_FORM, ZodValidator>({
 		defaultValues: {
@@ -41,7 +39,6 @@ export const Update = () => {
 
 	const onClose = () => {
 		setModal({ update: { open: false, props: null } });
-		clearParams();
 	};
 
 	return (

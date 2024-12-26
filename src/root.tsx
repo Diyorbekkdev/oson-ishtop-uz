@@ -5,13 +5,11 @@ import { Header } from "./components/header";
 import { SideBar } from "./components/side-bar";
 import { useMainFeatures } from "./features";
 import { SignInPage } from "./modules/auth/sign-in/routes/sign-in.page";
-// import { useGeneralService } from "./services/general";
 import { TRoutes } from "./types/routes";
 import routes from "./utils/routes";
 
 const Root = () => {
 	const { renderNestedRoute } = useMainFeatures();
-	// const { user_role } = useGeneralService();
 
 	const filterRoutesByRole = (routes: TRoutes[]): TRoutes[] => {
 		return routes
@@ -31,7 +29,7 @@ const Root = () => {
 			<SideBar />
 			<main className="bg-gray-100 dark:bg-[#090e14] flex flex-col">
 				<Header />
-				<div className="mt-4 flex-grow shadow p-6 overflow-auto">
+				<div className="mt-4 flex-grow shadow p-6 overflow-y-auto h-[calc(100dvh-300px)]">
 					<Routes>
 						<Route path="/sign-in" element={<SignInPage />} />
 						<Route path="/" element={<Navigate to="/add-management" />} />

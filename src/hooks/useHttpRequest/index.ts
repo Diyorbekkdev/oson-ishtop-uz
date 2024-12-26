@@ -11,7 +11,6 @@ interface IFunctionInvoke {
 
 export const useHttpRequest = () => {
 	const authHeader = useAuthHeader()?.split(" ");
-	console.log(authHeader?.[1]);
 	return {
 		functionInvoke: async <T>({
 			functionName,

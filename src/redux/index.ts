@@ -1,3 +1,4 @@
+import add_management from "@/modules/add-management/store";
 // import productModal from "@/modules/dashboard/children/products/modal/store";
 import { configureStore } from "@reduxjs/toolkit";
 import modal from "./generic-slices/modals";
@@ -9,6 +10,7 @@ const store = configureStore({
 		signIn,
 		ui,
 		modal,
+		add_management,
 	},
 });
 

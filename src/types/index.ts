@@ -54,3 +54,31 @@ export interface NotificationMessage {
 	subtitle: string;
 	kind: NOTIFICATION_TYPE;
 }
+
+export type TUser = {
+	id: string;
+	createdDate: string;
+	fio: string;
+	birthDate: string;
+	gender: string;
+	phone: string;
+	language: string;
+	resumeResourcesId: string;
+	avatarResourcesId: string;
+	lat: string;
+	lon: string;
+	username: string;
+	roles: string[];
+};
+
+export type TTab = {
+	id: string;
+	name?: string;
+};
+
+export interface ITab {
+	id: string;
+	title?: string;
+	status?: TStatus;
+	info?: any;
+}

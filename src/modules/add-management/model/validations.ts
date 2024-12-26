@@ -19,3 +19,14 @@ export const updateAddSchema = z.object({
 		.min(0, "Kunlik narx 0 dan katta bo'lishi kerak")
 		.nonnegative("Narx 0 dan katta bo'lishi kerak"),
 });
+
+export const discountSchema = z.object({
+	fixedDay: z
+		.number()
+		.min(1, "Kunlar soni kamida 1 bo'lishi kerak")
+		.max(100, "Kunlar soni 100 dan oshmasligi kerak"),
+	discount: z
+		.number()
+		.min(1, "Chegirma miqdori kamida 1% bo'lishi kerak")
+		.max(100, "Chegirma miqdori  100% dan oshmasligi kerak"),
+});

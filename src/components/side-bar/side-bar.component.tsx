@@ -1,3 +1,4 @@
+import logo from "@/assets/icons/logo/logo.jpg";
 import { CollapsedIcon } from "@/assets/icons/sidebar/collapsed-icon";
 import { useReduxDispatch, useReduxSelector } from "@/hooks/useRedux";
 import { setSideNav } from "@/redux/slices/ui";
@@ -7,14 +8,15 @@ import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/divider";
 import { Tooltip } from "@nextui-org/tooltip";
 import { FC } from "react";
-import { CollapseItems } from "./customs/collapse-item";
+import { useLocation } from "react-router-dom";
+import { SidebarItem } from "./customs/sidebar-item";
 import { SidebarMenu } from "./customs/sidebar-menu";
-
 console.log(routes);
 
 export const SideBar: FC = () => {
 	const dispatch = useReduxDispatch();
 	const { sidenav } = useReduxSelector(({ ui }) => ui);
+	const { pathname } = useLocation();
 	return (
 		<aside
 			className={`sidenav__bg  group transition-all duration-300 dark:border-r-1 dark:border-solid dark:border-[#13181d] ${
@@ -28,11 +30,11 @@ export const SideBar: FC = () => {
 						radius="lg"
 						color="success"
 						className="text-center"
-						src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+						src={logo}
 					/>
 					{!sidenav.isFixed && (
 						<h1 className="text-white text-2xl pl-2 font-bold whitespace-nowrap">
-							Admin Panel
+							Oson Ish Top
 						</h1>
 					)}
 				</div>
@@ -106,7 +108,14 @@ export const SideBar: FC = () => {
 
 			<SidebarMenu title="">
 				{routes.map((route) => (
-					<CollapseItems key={route.id} {...route} />
+					<SidebarItem
+						key={route.id}
+						icon={route?.icon}
+						title={String(route?.title)}
+						href={route?.path}
+						isActive={pathname.startsWith(route?.path!)}
+						isExpanded={sidenav?.isFixed}
+					/>
 				))}
 			</SidebarMenu>
 		</aside>

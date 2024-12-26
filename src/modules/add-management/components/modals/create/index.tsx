@@ -1,5 +1,4 @@
 import ControlError from "@/components/error-message";
-import { useSearchParams } from "@/hooks/useSearchParams";
 import { ADD_MANAGEMENT_FORM } from "@/modules/add-management/model";
 import { createAddsSchema } from "@/modules/add-management/model/validations";
 import { useAddManagementModals } from "@/modules/add-management/store";
@@ -21,7 +20,6 @@ export const Create = () => {
 	const {
 		onCreate: { mutateAsync, isPending },
 	} = useCreateAddFeatures();
-	const { clearParams } = useSearchParams();
 
 	const form = useFormik<ADD_MANAGEMENT_FORM>({
 		initialValues: {
@@ -40,7 +38,6 @@ export const Create = () => {
 	const onClose = () => {
 		setModal({ create: { open: false, props: null } });
 		form.resetForm();
-		clearParams();
 	};
 
 	return (
@@ -65,6 +62,10 @@ export const Create = () => {
 									onBlur={form.handleBlur}
 									isInvalid={form.touched.nameUz && !!form.errors.nameUz}
 									required
+									isClearable
+									onClear={() => {
+										form.setFieldValue("nameUz", "");
+									}}
 								/>
 								<ControlError
 									form={form}
@@ -83,6 +84,10 @@ export const Create = () => {
 									onBlur={form.handleBlur}
 									isInvalid={form.touched.nameEn && !!form.errors.nameEn}
 									required
+									isClearable
+									onClear={() => {
+										form.setFieldValue("nameEn", "");
+									}}
 								/>
 								<ControlError
 									form={form}
@@ -101,6 +106,10 @@ export const Create = () => {
 									onBlur={form.handleBlur}
 									isInvalid={form.touched.nameRu && !!form.errors.nameRu}
 									required
+									isClearable
+									onClear={() => {
+										form.setFieldValue("nameRu", "");
+									}}
 								/>
 								<ControlError
 									form={form}

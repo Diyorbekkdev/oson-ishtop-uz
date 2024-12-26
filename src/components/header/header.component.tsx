@@ -1,6 +1,7 @@
 import { MoonIcon } from "@/assets/icons/header/moon.icon";
 import { NotificationIcon } from "@/assets/icons/header/notification.icon";
 import { SunIcon } from "@/assets/icons/header/sun.icon";
+import UserSettings from "@/modules/user-settings";
 import { THEME } from "@/types/enums/general";
 import { Badge } from "@nextui-org/badge";
 import { Switch } from "@nextui-org/switch";
@@ -22,6 +23,9 @@ export const Header = () => {
 	const generateHeaderTitle = (value: string) => {
 		const title: { [key: string]: string } = {
 			"/add-management": "E'lon turlarini boshqarish (VIP,SILVER,STANDART) ",
+			"/regions": "Region tizimdagi viloyatlarni boshqarish paneli",
+			"/job-type-control": "Bandlik turlarini boshqarish moduli",
+			"/job-categories": "Soha va kasblarni boshqarish moduli",
 		};
 
 		return title?.[value];
@@ -57,6 +61,7 @@ export const Header = () => {
 				</Badge>
 				<UserDropdown />
 			</div>
+			{/* <UserSettings /> */}
 		</div>
 	);
 };

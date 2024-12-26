@@ -16,6 +16,7 @@ import AuthEventProvider from "./configs/auth.ts";
 import { ErrorBoundary } from "./utils/error-boundary/index.tsx";
 
 import "./styles/index.scss";
+import { Spinner } from "@nextui-org/spinner";
 
 const authStore = createStore({
 	authName: "_auth",
@@ -42,7 +43,7 @@ export const GlobalWrapper: React.FC<{ children: ReactNode }> = ({
 	children,
 }) => {
 	return (
-		<Suspense>
+		<Suspense fallback={<Spinner />}>
 			<HelmetProvider>
 				<AuthProvider store={authStore}>
 					<BrowserRouter>

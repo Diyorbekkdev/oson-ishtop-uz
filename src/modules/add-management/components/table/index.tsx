@@ -1,4 +1,5 @@
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
+import { EyeIcon } from "@/assets/icons/signin.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
 import { formatNumber } from "@/utils/format-number";
@@ -14,6 +15,7 @@ import {
 import { Tooltip } from "@nextui-org/tooltip";
 import { useAddManagementCache } from "../../services";
 import { useAddManagementModals } from "../../store";
+import { useAddManagementTab } from "../../store/tabs.store";
 import { BottomContent } from "../pagination";
 import { AddManagementHeader } from "./table.header";
 
@@ -33,6 +35,7 @@ export const AddsTable = () => {
 		data: { data, isLoading },
 	} = useAddManagementCache();
 	const { setModal } = useAddManagementModals();
+	const { addTab, tabs } = useAddManagementTab();
 
 	return (
 		<Table
@@ -67,7 +70,11 @@ export const AddsTable = () => {
 				emptyContent={<div>No data</div>}
 				loadingContent={<Spinner />}
 				spellCheck={true}
-				style={{ height: "calc(100vh - 400px)", overflowY: "auto" }}
+				style={{
+					height:
+						tabs?.length === 0 ? "calc(100vh - 400px)" : "calc(100vh - 500px)",
+					overflowY: "auto",
+				}}
 			>
 				{(data?.content ?? []).map((el, index) => (
 					<TableRow key={el?.id}>
@@ -78,12 +85,28 @@ export const AddsTable = () => {
 								1}
 						</TableCell>
 						<TableCell>{el?.nameUz}</TableCell>
-						<TableCell>{el?.nameUz}</TableCell>
-						<TableCell>{el?.nameUz}</TableCell>
+						<TableCell>{el?.nameRu}</TableCell>
+						<TableCell>{el?.nameEn}</TableCell>
 						<TableCell>{formatNumber(el?.pricePerDay)} So'm</TableCell>
 						<TableCell>{formatDate(el?.createdDate)}</TableCell>
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
+								<Tooltip content="Details">
+									<span
+										onClick={(e) => {
+											e.stopPropagation();
+											setParams({ add: String(el?.id) });
+											addTab({
+												id: String(el?.id),
+												title: el?.name,
+												info: el?.pricePerDay,
+											});
+										}}
+										className="text-lg text-default-400 cursor-pointer active:opacity-50"
+									>
+										<EyeIcon />
+									</span>
+								</Tooltip>
 								<Tooltip content="E'lonni tahrirlash">
 									<span
 										className="text-lg text-default-400 cursor-pointer active:opacity-50"

@@ -1,5 +1,6 @@
 import { EyeSlash } from "@/assets/icons/global/gloval.icons";
 import { EyeIcon, UserIcon } from "@/assets/icons/signin.icons";
+import img from "@/assets/images/hero.jpg";
 import { useReduxDispatch, useReduxSelector } from "@/hooks/useRedux";
 import { setAuth, setRememberMe } from "@/redux/slices/auth/sign-in";
 import { Button } from "@nextui-org/button";
@@ -13,7 +14,6 @@ import { useState } from "react";
 import { SignInForm } from "../model";
 import { SignInSchema } from "../model/validators";
 import { useSignInFeatures } from "../routes/features";
-import img from "./hero.webp";
 
 export const SignIn = () => {
 	const dispatch = useReduxDispatch();
@@ -150,7 +150,7 @@ export const SignIn = () => {
 									size="lg"
 									radius="sm"
 									type="submit"
-									onClick={handleSubmit}
+									onPress={handleSubmit}
 									className="text-white tracking-wider text-lg mt-6"
 								>
 									{"Kirish"}
