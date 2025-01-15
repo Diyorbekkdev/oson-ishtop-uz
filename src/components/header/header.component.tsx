@@ -1,7 +1,6 @@
 import { MoonIcon } from "@/assets/icons/header/moon.icon";
 import { NotificationIcon } from "@/assets/icons/header/notification.icon";
 import { SunIcon } from "@/assets/icons/header/sun.icon";
-import UserSettings from "@/modules/user-settings";
 import { THEME } from "@/types/enums/general";
 import { Badge } from "@nextui-org/badge";
 import { Switch } from "@nextui-org/switch";
@@ -61,7 +60,6 @@ export const Header = () => {
 				</Badge>
 				<UserDropdown />
 			</div>
-			{/* <UserSettings /> */}
 		</div>
 	);
 };
