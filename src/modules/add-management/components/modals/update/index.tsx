@@ -30,6 +30,7 @@ export const Update = () => {
 		},
 		onSubmit: async (values) => {
 			await mutateAsync(values?.value);
+			form.reset();
 		},
 		validatorAdapter: standardSchemaValidator(),
 		validators: {
@@ -38,6 +39,7 @@ export const Update = () => {
 	});
 
 	const onClose = () => {
+		form.reset();
 		setModal({ update: { open: false, props: null } });
 	};
 

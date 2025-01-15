@@ -28,6 +28,7 @@ export const DiscountModal = () => {
 		},
 		onSubmit: async (values) => {
 			await mutateAsync(values?.value);
+			form.reset();
 		},
 		validatorAdapter: standardSchemaValidator(),
 		validators: {
@@ -37,6 +38,7 @@ export const DiscountModal = () => {
 
 	const onClose = () => {
 		setModal({ discount: { open: false, props: null } });
+		form.reset();
 	};
 
 	return (

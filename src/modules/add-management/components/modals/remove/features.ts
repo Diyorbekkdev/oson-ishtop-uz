@@ -30,6 +30,11 @@ export const useRemoveAddFeatures = (): RemoveAddFeatures => {
 	const pageSize = getParams(ADD_MANAGEMENT.PAGE_SIZE) || 10;
 	const page = getParams(ADD_MANAGEMENT.PAGE) || 1;
 
+	const onRequestClose = () => {
+		setModal({
+			remove: { open: false, props: null },
+		});
+	};
 	const onRemove = useMutation<void, Error, ADD_MANAGEMENT_FORM>({
 		mutationFn: async (value) => {
 			const { error, data } = await functionInvoke<ADD_MANAGEMENT_FORM>({
@@ -56,10 +61,5 @@ export const useRemoveAddFeatures = (): RemoveAddFeatures => {
 		},
 	});
 
-	const onRequestClose = () => {
-		setModal({
-			remove: { open: false, props: null },
-		});
-	};
 	return { onRemove, onRequestClose };
 };

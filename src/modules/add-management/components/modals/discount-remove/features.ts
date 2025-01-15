@@ -26,7 +26,11 @@ export const useRemoveAddFeatures = (): RemoveAddFeatures => {
 
 	const pageSize = getParams(ADD_MANAGEMENT.PAGE_SIZE) || 10;
 	const page = getParams(ADD_MANAGEMENT.PAGE) || 1;
-
+	const onRequestClose = () => {
+		setModal({
+			discount_remove: { open: false, props: null },
+		});
+	};
 	const onRemove = useMutation<void, Error, DISCOUNT_FORM>({
 		mutationFn: async () => {
 			const { error } = await functionInvoke<DISCOUNT_FORM>({
@@ -51,10 +55,5 @@ export const useRemoveAddFeatures = (): RemoveAddFeatures => {
 		},
 	});
 
-	const onRequestClose = () => {
-		setModal({
-			discount_remove: { open: false, props: null },
-		});
-	};
 	return { onRemove, onRequestClose };
 };

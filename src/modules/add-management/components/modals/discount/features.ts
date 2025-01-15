@@ -32,6 +32,11 @@ export const useDiscountModalFeatures = (): TCreateAddFeatures => {
 		? `${DISCOUNT.UPDATE}/${discount?.props?.id}`
 		: DISCOUNT.CREATE;
 
+	const onRequestClose = () => {
+		setModal({
+			discount: { open: false, props: null },
+		});
+	};
 	const handleSubmit = useMutation<void, Error, DISCOUNT_FORM>({
 		mutationFn: async (value) => {
 			const { error } = await functionInvoke<DISCOUNT_FORM>({
@@ -62,12 +67,6 @@ export const useDiscountModalFeatures = (): TCreateAddFeatures => {
 			});
 		},
 	});
-
-	const onRequestClose = () => {
-		setModal({
-			discount: { open: false, props: null },
-		});
-	};
 
 	return {
 		handleSubmit,

@@ -31,6 +31,12 @@ export const useCreateAddFeatures = (): TCreateAddFeatures => {
 	const pageSize = getParams(REGION_MANAGEMENT.PAGE_SIZE) || 10;
 	const page = getParams(REGION_MANAGEMENT.PAGE) || 1;
 
+	const onRequestClose = () => {
+		setModal({
+			update: { open: false, props: null },
+		});
+	};
+
 	const onUpdate = useMutation<void, Error, REGION_FORM>({
 		mutationFn: async (value) => {
 			const { error } = await functionInvoke<REGION_FORM>({
@@ -55,12 +61,6 @@ export const useCreateAddFeatures = (): TCreateAddFeatures => {
 			});
 		},
 	});
-
-	const onRequestClose = () => {
-		setModal({
-			update: { open: false, props: null },
-		});
-	};
 
 	return {
 		onUpdate,

@@ -1,4 +1,3 @@
-import { useAuth } from "@/configs/auth";
 import { useHttpRequest } from "@/hooks/useHttpRequest";
 import { QueryResult, TUser } from "@/types";
 import { USER } from "@/types/enums/general";

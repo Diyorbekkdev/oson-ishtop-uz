@@ -29,6 +29,7 @@ export const ChildModal = () => {
 		},
 		onSubmit: async (values) => {
 			await mutateAsync(values?.value);
+			form.reset();
 		},
 		validatorAdapter: standardSchemaValidator(),
 		validators: {
@@ -38,6 +39,7 @@ export const ChildModal = () => {
 
 	const onClose = () => {
 		setModal({ child: { open: false, props: null } });
+		form.reset();
 	};
 
 	return (

@@ -31,6 +31,12 @@ export const useCreateAddFeatures = (): TCreateAddFeatures => {
 	const pageSize = getParams(ADD_MANAGEMENT.PAGE_SIZE) || 10;
 	const page = getParams(ADD_MANAGEMENT.PAGE) || 1;
 
+	const onRequestClose = () => {
+		setModal({
+			create: { open: false, props: null },
+		});
+	};
+
 	const onCreate = useMutation<void, Error, ADD_MANAGEMENT_FORM>({
 		mutationFn: async (value) => {
 			const { error } = await functionInvoke<ADD_MANAGEMENT_FORM>({
@@ -52,12 +58,6 @@ export const useCreateAddFeatures = (): TCreateAddFeatures => {
 			});
 		},
 	});
-
-	const onRequestClose = () => {
-		setModal({
-			create: { open: false, props: null },
-		});
-	};
 
 	return {
 		onCreate,
