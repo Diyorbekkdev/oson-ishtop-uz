@@ -34,12 +34,18 @@ export type TUserProfileSettingsModal = {
 	user_profile: { open: boolean; props: any };
 };
 
+export type TUsers = {
+	remove: { open: boolean; props: any };
+	update: { open: boolean; props: any };
+};
+
 type Modal = {
 	addManagement: TAddManagementModal;
 	regions: TRegionsModal;
 	jobTypeControl: TJobTypeControlModal;
 	jobCategoryControl: TJobCategoriesModal;
 	userProfileControl: TUserProfileSettingsModal;
+	users: TUsers;
 };
 
 const initialState: Modal = {
@@ -71,6 +77,10 @@ const initialState: Modal = {
 	},
 	userProfileControl: {
 		user_profile: { open: false, props: null },
+	},
+	users: {
+		remove: { open: false, props: null },
+		update: { open: false, props: null },
 	},
 };
 

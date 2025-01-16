@@ -1,4 +1,5 @@
 import store from "@/redux";
+import { Spinner } from "@nextui-org/spinner";
 import { NextUIProvider } from "@nextui-org/system";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -16,7 +17,7 @@ import AuthEventProvider from "./configs/auth.ts";
 import { ErrorBoundary } from "./utils/error-boundary/index.tsx";
 
 import "./styles/index.scss";
-import { Spinner } from "@nextui-org/spinner";
+import "react-medium-image-zoom/dist/styles.css";
 
 const authStore = createStore({
 	authName: "_auth",

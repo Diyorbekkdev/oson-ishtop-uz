@@ -6,6 +6,7 @@ import { ComingSoon } from "@/modules/coming-soon";
 import { JobCategoriesRoute } from "@/modules/job-categories/routes";
 import { JobTypeControlRoutes } from "@/modules/job-type-control/routes";
 import { RegionRoutes } from "@/modules/regions/routes";
+import { UsersRoutes } from "@/modules/users/routes";
 import { TRoutes } from "@/types/routes";
 
 export const routes: TRoutes[] = [
@@ -13,6 +14,7 @@ export const routes: TRoutes[] = [
 	...JobTypeControlRoutes,
 	...RegionRoutes,
 	...JobCategoriesRoute,
+	...UsersRoutes,
 ];
 
 export const unauthed_routes: TRoutes[] = [

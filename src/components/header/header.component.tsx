@@ -25,6 +25,7 @@ export const Header = () => {
 			"/regions": "Region tizimdagi viloyatlarni boshqarish paneli",
 			"/job-type-control": "Bandlik turlarini boshqarish moduli",
 			"/job-categories": "Soha va kasblarni boshqarish moduli",
+			"/users": "Foydalanuvchilarni boshqarish moduli",
 		};
 
 		return title?.[value];
