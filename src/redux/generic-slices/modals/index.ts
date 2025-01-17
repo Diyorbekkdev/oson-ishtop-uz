@@ -37,6 +37,7 @@ export type TUserProfileSettingsModal = {
 export type TUsers = {
 	remove: { open: boolean; props: any };
 	update: { open: boolean; props: any };
+	freeze: { open: boolean; props: any };
 };
 
 type Modal = {
@@ -81,6 +82,7 @@ const initialState: Modal = {
 	users: {
 		remove: { open: false, props: null },
 		update: { open: false, props: null },
+		freeze: { open: false, props: null },
 	},
 };
 

@@ -10,6 +10,7 @@ const Header = () => {
 	const { setParams, getParams, removeParamsByKey, clearParams } =
 		useSearchParams();
 	const { closeTab, tabs } = useUsersTab();
+
 	const closeRequestTab = (index: number) => {
 		const shouldRedirect = closeTab(tabs[index]);
 

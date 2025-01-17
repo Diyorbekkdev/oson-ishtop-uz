@@ -47,6 +47,7 @@
 		"@nextui-org/user": "^2.2.5",
 		"@tanstack/react-form": "^0.40.4",
 		"@tanstack/zod-form-adapter": "^0.40.4",
+		"classnames": "^2.5.1",
 		"formik": "^2.4.6",
 		"framer-motion": "^11.15.0",
 		"lucide-react": "^0.469.0",

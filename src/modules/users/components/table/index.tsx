@@ -1,3 +1,4 @@
+import FreezeIcon from "@/assets/icons/freeze.icon";
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { EyeIcon } from "@/assets/icons/signin.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
@@ -165,6 +166,22 @@ export const UsersTable = () => {
 										}}
 									>
 										<EditIcon stroke="currentColor" />
+									</span>
+								</Tooltip>
+								<Tooltip content="Foydalanuvchini balansni muzlatish">
+									<span
+										className="text-lg text-default-400 cursor-pointer active:opacity-50"
+										onClick={(e) => {
+											e.stopPropagation();
+											setModal({
+												freeze: {
+													open: true,
+													props: { ...el },
+												},
+											});
+										}}
+									>
+										<FreezeIcon />
 									</span>
 								</Tooltip>
 								<Tooltip color="danger" content="Foydalanuvchini o'chirish">
