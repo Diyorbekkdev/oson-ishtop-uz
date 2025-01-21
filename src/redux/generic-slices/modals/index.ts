@@ -40,6 +40,11 @@ export type TUsers = {
 	freeze: { open: boolean; props: any };
 };
 
+export type TAdds = {
+	reject: { open: boolean; props: any };
+	accept: { open: boolean; props: any };
+};
+
 type Modal = {
 	addManagement: TAddManagementModal;
 	regions: TRegionsModal;
@@ -47,6 +52,7 @@ type Modal = {
 	jobCategoryControl: TJobCategoriesModal;
 	userProfileControl: TUserProfileSettingsModal;
 	users: TUsers;
+	adds: TAdds;
 };
 
 const initialState: Modal = {
@@ -83,6 +89,10 @@ const initialState: Modal = {
 		remove: { open: false, props: null },
 		update: { open: false, props: null },
 		freeze: { open: false, props: null },
+	},
+	adds: {
+		reject: { open: false, props: null },
+		accept: { open: false, props: null },
 	},
 };
 

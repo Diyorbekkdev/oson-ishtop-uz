@@ -15,7 +15,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.tsx";
 import AuthEventProvider from "./configs/auth.ts";
 import { ErrorBoundary } from "./utils/error-boundary/index.tsx";
-
+import "swiper/css";
+import "swiper/css/pagination";
 import "./styles/index.scss";
 import "react-medium-image-zoom/dist/styles.css";
 

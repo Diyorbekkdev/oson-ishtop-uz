@@ -3,7 +3,7 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import toast from "react-hot-toast";
 
 interface IFunctionInvoke {
-	body?: object;
+	body?: object | string;
 	headers?: object;
 	functionName: string;
 	method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";

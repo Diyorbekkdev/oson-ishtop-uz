@@ -3,7 +3,7 @@ import { Divider } from "@nextui-org/divider";
 import { Input } from "@nextui-org/input";
 
 export const TableHeaderComponent = () => {
-	const { setParams } = useSearchParams();
+	const { setParams, getParams } = useSearchParams();
 	return (
 		<>
 			<div className="flex items-center justify-between">
@@ -13,6 +13,7 @@ export const TableHeaderComponent = () => {
 					className="max-w-xs"
 					onChange={(e) => setParams({ search: e.target.value })}
 					isClearable
+					value={getParams("search") ?? ""}
 					onClear={() => setParams({ search: "" })}
 				/>
 			</div>

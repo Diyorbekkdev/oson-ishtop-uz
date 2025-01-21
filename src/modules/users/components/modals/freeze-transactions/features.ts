@@ -11,14 +11,15 @@ import {
 import { useUsersModals } from "../../../store";
 
 type RemoveUserFeatures = {
-	onFreeze: MutationResult<CONTENT>;
+	onFreeze: MutationResult<any>;
+	unFreeze: MutationResult<any>;
 	onRequestClose: () => void;
 };
 
 export const useFreezeUserTransactionFeatures = (): RemoveUserFeatures => {
 	const queryClient = useQueryClient();
 	const { functionInvoke } = useHttpRequest();
-	const { freeze, setModal } = useUsersModals();
+	const { setModal } = useUsersModals();
 
 	const { getParams } = useSearchParams();
 
@@ -27,15 +28,42 @@ export const useFreezeUserTransactionFeatures = (): RemoveUserFeatures => {
 	const search = getParams("search") || "";
 
 	const onFreeze = useMutation<void, Error, CONTENT>({
-		mutationFn: async () => {
-			const { error } = await functionInvoke<CONTENT>({
-				functionName: `${USER_FREEZE_TRANSACTION_MODAL.PARAM}/${freeze?.props?.id}`,
+		mutationFn: async (value) => {
+			const { error, data } = await functionInvoke<CONTENT>({
+				functionName: `${USER_FREEZE_TRANSACTION_MODAL?.FREEZE}/${value?.id}`,
 				method: "POST",
 			});
 
 			if (error) return error;
 
-			toast.success("Foydalanuvchi hisobi muzlatildi");
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
+
+			onRequestClose();
+			queryClient.refetchQueries({
+				queryKey: [
+					`${USER_MANAGEMENT.DATA_KEY}?size=${pageSize}&page=${page}&search=${search}`,
+				],
+			});
+		},
+	});
+
+	const unFreeze = useMutation<void, Error, CONTENT>({
+		mutationFn: async (value) => {
+			const { error, data } = await functionInvoke<CONTENT>({
+				functionName: `${USER_FREEZE_TRANSACTION_MODAL?.UNFREEZE}/${value?.id}`,
+				method: "POST",
+			});
+
+			if (error) return error;
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 
 			onRequestClose();
 			queryClient.refetchQueries({
@@ -51,5 +79,5 @@ export const useFreezeUserTransactionFeatures = (): RemoveUserFeatures => {
 			freeze: { open: false, props: null },
 		});
 	};
-	return { onFreeze, onRequestClose };
+	return { onFreeze, onRequestClose, unFreeze };
 };

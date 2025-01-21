@@ -1,4 +1,5 @@
 import { AddManagementRoute } from "@/modules/add-management/routes";
+import { AddsRoutes } from "@/modules/adds/routes";
 import { ResetPasswordRoute } from "@/modules/auth/reset-password/routes";
 import { SignInRoute } from "@/modules/auth/sign-in/routes";
 import { SignUpRoute } from "@/modules/auth/sing-up/routes";
@@ -15,6 +16,7 @@ export const routes: TRoutes[] = [
 	...RegionRoutes,
 	...JobCategoriesRoute,
 	...UsersRoutes,
+	...AddsRoutes,
 ];
 
 export const unauthed_routes: TRoutes[] = [

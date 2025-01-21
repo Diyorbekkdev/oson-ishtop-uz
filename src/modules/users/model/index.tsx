@@ -22,7 +22,8 @@ enum USER_UPDATE_MODAL {
 }
 
 enum USER_FREEZE_TRANSACTION_MODAL {
-	PARAM = "admin/balance/freeze",
+	FREEZE = "admin/balance/freeze",
+	UNFREEZE = "admin/balance/unfreeze",
 }
 
 enum USER_REMOVE_MODAL {
@@ -44,7 +45,7 @@ export type CONTENT = {
 	createdDate: null;
 	fio: string;
 	birthDate: string;
-	gender: boolean;
+	gender: "MALE" | "FEMALE";
 	phone: string;
 	lat: null;
 	lon: null;
@@ -53,6 +54,9 @@ export type CONTENT = {
 	updatedDate: string;
 	isEnabled: boolean;
 	resumeResourcesId: string | null;
+	balanceStatus: "INACTIVE" | "ACTIVE";
+	success?: boolean;
+	message?: string;
 };
 
 export type DATA = {
