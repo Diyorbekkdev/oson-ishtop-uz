@@ -55,7 +55,7 @@ const Header = () => {
 							<div
 								className="flex items-center gap-8"
 								onClick={() => {
-									setParams({ userId: item.id });
+									setParams({ userId: item.id, page: "1" });
 								}}
 							>
 								<Tooltip content={item?.title}>

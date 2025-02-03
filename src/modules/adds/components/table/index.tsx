@@ -1,3 +1,4 @@
+import { EyeIcon } from "@/assets/icons/signin.icons";
 import { VerticalDotsIcon } from "@/assets/icons/vertical-dots.icon";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
@@ -20,6 +21,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@nextui-org/table";
+import { Tooltip } from "@nextui-org/tooltip";
 import { generateStatus } from "../../model";
 import { useAdminAdds } from "../../services";
 import { useAddsModals } from "../../store";
@@ -161,20 +163,11 @@ export const AddsTable = () => {
 						</TableCell>
 						<TableCell>{formatDate(el?.expiredDate!)}</TableCell>
 						<TableCell>
-							<Dropdown>
-								<DropdownTrigger>
-									<Button isIconOnly>
-										<VerticalDotsIcon />
-									</Button>
-								</DropdownTrigger>
-								<DropdownMenu
-									aria-label="User menu actions"
-									onAction={() => console.log()}
-								>
-									<DropdownItem
-										key="details"
-										color="success"
-										onPress={() => {
+							<div className="flex items-center gap-4 justify-end">
+								<Tooltip content="E'lon ma'lumotlarini ko'rish">
+									<span
+										onClick={(e) => {
+											e.stopPropagation();
 											setParams({ add_id: el?.id });
 											addTab({
 												id: el?.id,
@@ -184,36 +177,49 @@ export const AddsTable = () => {
 												},
 											});
 										}}
+										className="text-lg text-default-400 cursor-pointer active:opacity-50"
 									>
-										Qo'shimcha ma'lumotlar
-									</DropdownItem>
-									<DropdownItem
-										key="accepted"
-										color="success"
-										isDisabled={el?.status === "ACCEPTED"}
-										onPress={() => {
-											setModal({
-												accept: { open: true, props: el },
-											});
-										}}
+										<EyeIcon />
+									</span>
+								</Tooltip>
+								<Dropdown>
+									<DropdownTrigger>
+										<Button isIconOnly>
+											<VerticalDotsIcon />
+										</Button>
+									</DropdownTrigger>
+									<DropdownMenu
+										aria-label="User menu actions"
+										onAction={() => console.log()}
 									>
-										Tasdiqlash
-									</DropdownItem>
-									<DropdownItem
-										key="reject-"
-										color="danger"
-										className="text-danger"
-										isDisabled={el?.status === "REJECTED"}
-										onPress={() => {
-											setModal({
-												reject: { open: true, props: el },
-											});
-										}}
-									>
-										Rad etish
-									</DropdownItem>
-								</DropdownMenu>
-							</Dropdown>
+										<DropdownItem
+											key="accepted"
+											color="success"
+											isDisabled={el?.status === "ACCEPTED"}
+											onPress={() => {
+												setModal({
+													accept: { open: true, props: el },
+												});
+											}}
+										>
+											Tasdiqlash
+										</DropdownItem>
+										<DropdownItem
+											key="reject-"
+											color="danger"
+											className="text-danger"
+											isDisabled={el?.status === "REJECTED"}
+											onPress={() => {
+												setModal({
+													reject: { open: true, props: el },
+												});
+											}}
+										>
+											Rad etish
+										</DropdownItem>
+									</DropdownMenu>
+								</Dropdown>
+							</div>
 						</TableCell>
 					</TableRow>
 				))}

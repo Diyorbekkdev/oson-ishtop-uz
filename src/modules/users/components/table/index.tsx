@@ -240,7 +240,7 @@ export const UsersTable = () => {
 									<span
 										onClick={(e) => {
 											e.stopPropagation();
-											setParams({ userId: String(el?.id) });
+											setParams({ userId: String(el?.id), page: "1" });
 											addTab({
 												id: String(el?.id),
 												title: el?.fio,

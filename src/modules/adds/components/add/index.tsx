@@ -25,7 +25,7 @@ const SelectedAdd = () => {
 					</CardHeader>
 					<Divider />
 					<CardBody>
-						<p className="text-6xl">{data?.data?.viewCnt ?? 0}</p>
+						<p className="text-3xl">{data?.data?.viewCnt ?? 0}</p>
 					</CardBody>
 				</Card>
 				<Card>
@@ -43,7 +43,7 @@ const SelectedAdd = () => {
 					</CardHeader>
 					<Divider />
 					<CardBody>
-						<p className="text-6xl">{data?.data?.peopleCnt ?? 0}</p>
+						<p className="text-3xl">{data?.data?.peopleCnt ?? 0}</p>
 					</CardBody>
 				</Card>
 				<Card>
@@ -63,14 +63,14 @@ const SelectedAdd = () => {
 					<CardBody>
 						<div className="flex items-center gap-4">
 							<div>
-								<span className="text-md text-6xl">
+								<span className="text-md text-3xl">
 									{data?.data?.salaryFrom} so'm
 								</span>
 								<sub className="text-md text-2xl">dan</sub>
 							</div>
 							<Divider className="w-[40px]" />
 							<div>
-								<span className="text-md text-6xl">
+								<span className="text-md text-3xl">
 									{data?.data?.salaryTo} so'm
 								</span>
 								<sub className="text-md text-2xl">gacha</sub>
@@ -93,7 +93,7 @@ const SelectedAdd = () => {
 					</CardHeader>
 					<Divider />
 					<CardBody>
-						<p className="text-md text-6xl">{data?.data?.trialPeriod}</p>
+						<p className="text-md text-3xl">{data?.data?.trialPeriod}</p>
 					</CardBody>
 				</Card>
 			</div>

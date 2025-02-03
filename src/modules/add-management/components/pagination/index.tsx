@@ -10,7 +10,7 @@ type TPagination = {
 };
 
 export const BottomContent = memo(({ page, pages, setPage }: TPagination) => {
-	const { setParams } = useSearchParams();
+	const { setParams, getParams } = useSearchParams();
 	return (
 		<div className="py-2 px-2 flex justify-end items-center gap-4">
 			<div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export const BottomContent = memo(({ page, pages, setPage }: TPagination) => {
 						{ key: "20", label: "20" },
 						{ key: "30", label: "30" },
 					]}
-					defaultSelectedKeys={["10"]}
+					defaultSelectedKeys={[getParams("page_size") ?? "10"]}
 					className="min-w-[80px]"
 					radius="sm"
 					onChange={(e) => setParams({ page_size: e.target.value, page: "1" })}
