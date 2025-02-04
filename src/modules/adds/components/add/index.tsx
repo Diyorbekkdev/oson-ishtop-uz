@@ -9,7 +9,7 @@ const SelectedAdd = () => {
 	console.log(data);
 	return (
 		<div className="p-4">
-			<div className="grid grid-cols-4 gap-4">
+			<div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
 				<Card>
 					<CardHeader className="flex gap-3">
 						<Image

@@ -26,14 +26,18 @@ export const useRemoveParentFeatures = (): RemoveParentFeatures => {
 
 	const onRemove = useMutation<void, Error, PARENT_FORM>({
 		mutationFn: async () => {
-			const { error } = await functionInvoke<PARENT_FORM>({
+			const { error, data } = await functionInvoke<PARENT_FORM>({
 				functionName: `${JOB_CATEGORIES_MANAGEMENT.REMOVE}/${remove?.props?.id}`,
 				method: "DELETE",
 			});
 
 			if (error) return error;
 
-			toast.success("Kategoriya o'chirildi");
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 
 			onRequestClose();
 			queryClient.refetchQueries({

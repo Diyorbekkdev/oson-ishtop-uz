@@ -49,7 +49,7 @@ const Header = () => {
 					<Tab
 						key={item.id}
 						onClick={() => {
-							setParams({ add_id: item.id });
+							setParams({ add_id: item.id, page: "1" });
 						}}
 						title={
 							<div

@@ -28,19 +28,25 @@ export const useRemoveChildCategoryFeatures = (): RemoveChildFeatures => {
 
 	const onRemove = useMutation<void, Error, CHILD_FORM>({
 		mutationFn: async () => {
-			const { error } = await functionInvoke<CHILD_FORM>({
+			const { error, data } = await functionInvoke<CHILD_FORM>({
 				functionName: `${CHILD_CATEGORIES_MANAGEMENT.REMOVE}/${child_remove?.props?.id}`,
 				method: "DELETE",
 			});
 
 			if (error) return error;
 
-			toast.success("Manzil o'chirildi");
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 
 			onRequestClose();
 			queryClient.refetchQueries({
 				queryKey: [
-					`${CHILD_CATEGORIES_MANAGEMENT.DATA_KEY}?size=${pageSize}&page=${page}&parentId=${getParams(
+					`${
+						CHILD_CATEGORIES_MANAGEMENT.DATA_KEY
+					}?size=${pageSize}&page=${page}&parentId=${getParams(
 						PARAMS.CATEGORY_ID,
 					)}`,
 				],

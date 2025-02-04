@@ -27,14 +27,18 @@ export const useCreateParentCategoryFeatures = (): TCreateAddFeatures => {
 
 	const onCreate = useMutation<void, Error, PARENT_FORM>({
 		mutationFn: async (value) => {
-			const { error } = await functionInvoke<PARENT_FORM>({
+			const { error, data } = await functionInvoke<PARENT_FORM>({
 				functionName: JOB_CATEGORIES_MANAGEMENT.CREATE,
 				body: { ...value },
 			});
 
 			if (error) return error;
 
-			toast.success("Ish kategoriyasi yaratildi.");
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 
 			onRequestClose();
 			queryClient.refetchQueries({

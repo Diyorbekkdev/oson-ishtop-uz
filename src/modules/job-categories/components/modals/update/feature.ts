@@ -27,7 +27,7 @@ export const useUpdateParentFeatures = (): TCreateParentCategoriesFeatures => {
 
 	const onUpdate = useMutation<void, Error, PARENT_FORM>({
 		mutationFn: async (value) => {
-			const { error } = await functionInvoke<PARENT_FORM>({
+			const { error, data } = await functionInvoke<PARENT_FORM>({
 				functionName: `${JOB_CATEGORIES_MANAGEMENT.UPDATE}/${update?.props?.id}`,
 				method: "PUT",
 				body: { ...value },
@@ -35,7 +35,11 @@ export const useUpdateParentFeatures = (): TCreateParentCategoriesFeatures => {
 
 			if (error) return error;
 
-			toast.success("Kategoriya tahrirlandi");
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 			onRequestClose();
 			queryClient.refetchQueries({
 				queryKey: [
