@@ -51,8 +51,6 @@ export const AddsTable = () => {
 	} = useAdminAdds();
 	const { setModal } = useAddsModals();
 	const { addTab, tabs } = useAddsTab();
-
-	console.log(tabs);
 	return (
 		<Table
 			aria-label="Example static collection table"
@@ -154,10 +152,10 @@ export const AddsTable = () => {
 						<TableCell>
 							{
 								<Chip
-									color={generateStatus(el?.status).color as any}
+									color={generateStatus(el?.status!).color as any}
 									variant="bordered"
 								>
-									{generateStatus(el?.status).label ?? "➖➖➖"}
+									{generateStatus(el?.status!).label ?? "➖➖➖"}
 								</Chip>
 							}
 						</TableCell>

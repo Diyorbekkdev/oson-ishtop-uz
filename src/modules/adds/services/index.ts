@@ -2,6 +2,7 @@ import { useHttpRequest } from "@/hooks/useHttpRequest";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { QueryResult } from "@/types";
 import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { ADDS_MANAGEMENT, CONTENT, DATA, PARAMS } from "../model";
 
 type ADDS_CACHE = {
@@ -11,18 +12,33 @@ export const useAdminAdds = (): ADDS_CACHE => {
 	const { functionInvoke } = useHttpRequest();
 	const { getParams } = useSearchParams();
 
-	const pageSize = getParams(ADDS_MANAGEMENT.PAGE_SIZE) || 10;
-	const page = getParams(ADDS_MANAGEMENT.PAGE) || 1;
-	const status = getParams(PARAMS.STATUS) || "ALL";
+	const queryParams = useMemo(
+		() => ({
+			pageSize: getParams(ADDS_MANAGEMENT.PAGE_SIZE) || 10,
+			page: getParams(ADDS_MANAGEMENT.PAGE) || 1,
+			status: getParams(PARAMS.STATUS) || "ALL",
+			tab: getParams(PARAMS.TAB) || PARAMS.WAITING,
+			salaryFrom: getParams("priceFrom"),
+			salaryTo: getParams("priceTo"),
+		}),
+		[getParams],
+	);
 
 	const data = useQuery({
 		queryKey: [
-			`${ADDS_MANAGEMENT.DATA_KEY}?size=${pageSize}&page=${page}&status=${status}`,
+			`${ADDS_MANAGEMENT.DATA_KEY}?size=${queryParams.pageSize}&page=${queryParams.page}&status=${queryParams.tab}&salaryFrom=${queryParams.salaryFrom}&salaryTo=${queryParams.salaryTo}`,
 		],
 		queryFn: async () => {
 			const { data } = await functionInvoke<{ data: DATA }>({
-				functionName: `${ADDS_MANAGEMENT.DATA_PARAMS}?size=${pageSize}&page=${page}&status=${status}`,
-				method: "GET",
+				functionName: `${ADDS_MANAGEMENT.DATA_PARAMS}?`,
+				method: "POST",
+				body: {
+					page: queryParams.page,
+					size: queryParams.pageSize,
+					status: queryParams.tab,
+					salaryFrom: queryParams.salaryFrom,
+					salaryTo: queryParams.salaryTo,
+				},
 			});
 			return data?.data;
 		},

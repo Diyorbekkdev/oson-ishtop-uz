@@ -25,8 +25,8 @@ export const SignIn = () => {
 
 	const form = useForm<SignInForm, ZodValidator>({
 		defaultValues: {
-			phone: "907661770",
-			password: "Diyorbek$2001",
+			phone: "941029980",
+			password: "12345678",
 		},
 		validatorAdapter: zodValidator(),
 		validators: {

@@ -21,6 +21,7 @@ enum PARAMS {
 	ACCEPTED = "ACCEPTED",
 	REJECTED = "REJECTED",
 	ARCHIVE = "ARCHIVE",
+	TAB = "tab",
 }
 
 enum ADD_STATUS_PARAMS {
@@ -66,24 +67,34 @@ export type CONTENT = {
 	trialPeriod: number;
 	studentIsNeeded: number;
 	annContacts: Array<{
-		type: string;
-		source: string;
+		name: string;
+		id: string;
+		tgUsername: string;
+		numbers: string[];
 	}>;
 	phoneCnt: 0;
 	expiredDate: string;
 	rejectedDescription: string | null;
 	jobTypesName: string | null;
 	trialPeriodType: string;
-	jobCategories: Array<{
-		id: string;
-		nameUz: string;
-		nameEn: string;
-		nameRu: string;
-		ordering: number;
-	}>;
+	jobCategories: {
+		children: Array<{
+			id: string;
+			name: string;
+			createdDate: string;
+		}>;
+		parents: {
+			id: string;
+			name: string;
+			createdDate: string;
+		};
+	};
 	success?: boolean;
 	message?: string;
 	info?: boolean;
+	workSchedule: string;
+	workTimeStart: string;
+	workTimeEnd: string;
 };
 
 export type DATA = {

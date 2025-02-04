@@ -1,6 +1,6 @@
 enum JOB_CATEGORIES_MANAGEMENT {
 	DATA_KEY = "JOB-CATEGORIES",
-	DATA_PARAMS = "ann-job-categories/read-parents",
+	DATA_PARAMS = "ann-job-categories-parent/read",
 	PAGE = "page",
 	PAGE_SIZE = "page_size",
 	CREATE = "ann-job-categories/create-parent",

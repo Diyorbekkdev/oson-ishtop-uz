@@ -1,10 +1,10 @@
 import { useHttpRequest } from "@/hooks/useHttpRequest";
-import { useAdminAdds } from "@/modules/adds/services";
+import { ADD_STATUS_PARAMS, CONTENT } from "@/modules/adds/model";
+import { useSelectedAddCache } from "@/modules/adds/services";
 import { useAddsModals } from "@/modules/adds/store";
 import { MutationResult } from "@/types";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { ADD_STATUS_PARAMS, CONTENT } from "../../../model";
 
 type AcceptFeatures = {
 	onAccept: MutationResult<CONTENT>;
@@ -17,10 +17,7 @@ export const useAcceptFeatures = (): AcceptFeatures => {
 
 	const {
 		data: { refetch },
-	} = useAdminAdds();
-	const {
-		data: { refetch: adds_list_refetch },
-	} = useAdminAdds();
+	} = useSelectedAddCache();
 
 	const onAccept = useMutation<void, Error, CONTENT>({
 		mutationFn: async () => {
@@ -39,7 +36,6 @@ export const useAcceptFeatures = (): AcceptFeatures => {
 
 			onRequestClose();
 			await refetch();
-			await adds_list_refetch();
 		},
 	});
 

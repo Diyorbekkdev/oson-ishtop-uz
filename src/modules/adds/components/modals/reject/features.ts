@@ -1,10 +1,10 @@
 import { useHttpRequest } from "@/hooks/useHttpRequest";
-import { useSearchParams } from "@/hooks/useSearchParams";
+import { useAdminAdds } from "@/modules/adds/services";
 import { useAddsModals } from "@/modules/adds/store";
 import { MutationResult } from "@/types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { ADDS_MANAGEMENT, ADD_STATUS_PARAMS, CONTENT } from "../../../model";
+import { ADD_STATUS_PARAMS, CONTENT } from "../../../model";
 
 type RemoveUserFeatures = {
 	onReject: MutationResult<CONTENT>;
@@ -12,15 +12,15 @@ type RemoveUserFeatures = {
 };
 
 export const useRejectFeatures = (): RemoveUserFeatures => {
-	const queryClient = useQueryClient();
 	const { functionInvoke } = useHttpRequest();
 	const { setModal, reject } = useAddsModals();
 
-	const { getParams } = useSearchParams();
-
-	const pageSize = getParams(ADDS_MANAGEMENT.PAGE_SIZE) || 10;
-	const page = getParams(ADDS_MANAGEMENT.PAGE) || 1;
-	const search = getParams("search") || "";
+	const {
+		data: { refetch },
+	} = useAdminAdds();
+	const {
+		data: { refetch: adds_list_refetch },
+	} = useAdminAdds();
 
 	const onReject = useMutation<void, Error, CONTENT>({
 		mutationFn: async (value) => {
@@ -39,11 +39,8 @@ export const useRejectFeatures = (): RemoveUserFeatures => {
 			}
 
 			onRequestClose();
-			queryClient.refetchQueries({
-				queryKey: [
-					`${ADDS_MANAGEMENT.DATA_KEY}?size=${pageSize}&page=${page}&search=${search}`,
-				],
-			});
+			await refetch();
+			await adds_list_refetch();
 		},
 	});
 
