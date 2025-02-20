@@ -236,7 +236,7 @@ export const UsersTable = () => {
 						<TableCell>{formatDate(el?.createdDate!)}</TableCell>
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
-								<Tooltip content="Foydalanuvchini ko'rish">
+								<Tooltip content="Foydalanuvchini ko'rish.">
 									<span
 										onClick={(e) => {
 											e.stopPropagation();

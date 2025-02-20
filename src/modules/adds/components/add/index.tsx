@@ -208,7 +208,7 @@ const SelectedAdd = () => {
 					isDisabled={add?.status === "REJECTED"}
 					onPress={() => {
 						setModal({
-							reject: { open: true, props: add },
+							reject: { open: true, props: add && add },
 						});
 					}}
 				>

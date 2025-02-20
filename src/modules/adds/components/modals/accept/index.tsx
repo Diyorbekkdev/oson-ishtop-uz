@@ -36,9 +36,8 @@ export const AcceptAdd = () => {
 						Bekor qilish
 					</Button>
 					<Button
-						color="danger"
+						color="success"
 						isLoading={isPending}
-						endContent={<DeleteIcon size={20} />}
 						onPress={async () => {
 							await mutateAsync(accept.props);
 						}}
