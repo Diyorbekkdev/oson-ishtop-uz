@@ -45,7 +45,7 @@ const columns = [
 	{ name: "Foydalanuvchi balansi", uid: "balance" },
 	{ name: "Foydalanuvchi Tug'ilgan Sana", uid: "birthDate" },
 	{ name: "Foydalanuvchi Tahrirlangan Sana", uid: "updated_at" },
-	{ name: "Yaratilgan Sana", uid: "created_at" },
+	//   { name: "Yaratilgan Sana", uid: "created_at" },
 	{ name: "Actions", uid: "actions" },
 ];
 
@@ -93,7 +93,7 @@ export const UsersTable = () => {
 			classNames={{
 				wrapper: "dark:bg-dark-card",
 				tr: "dark:hover:bg-dark-hover-row dark:even:bg-dark-even-row even:bg-primary-even-row",
-				th: "first:w-[50px]",
+				// th: "first:w-[20px]",
 			}}
 			topContent={<TableHeaderComponent />}
 			bottomContent={
@@ -233,7 +233,7 @@ export const UsersTable = () => {
 						</TableCell>
 						<TableCell>{formatDate(el?.birthDate!)}</TableCell>
 						<TableCell>{formatDate(el?.updatedDate!)}</TableCell>
-						<TableCell>{formatDate(el?.createdDate!)}</TableCell>
+						{/* <TableCell>{formatDate(el?.createdDate!)}</TableCell> */}
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
 								<Tooltip content="Foydalanuvchini ko'rish.">

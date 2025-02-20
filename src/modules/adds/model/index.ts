@@ -27,6 +27,7 @@ enum PARAMS {
 enum ADD_STATUS_PARAMS {
 	REJECTED = "ann/reject",
 	ACCEPTED = "ann/accept",
+	ARCHIVE = "admin/ann/archive",
 }
 
 type TStatus = "WAITING" | "ACCEPTED" | "REJECTED" | "ARCHIVE" | "DRAFT";

@@ -28,27 +28,27 @@ export const useChildModalFeatures = (): TCreateAddFeatures => {
 	const page = getParams(JOB_CATEGORIES_MANAGEMENT.PAGE) || 1;
 
 	const functionName = child?.props?.id
-		? `${CHILD_CATEGORIES_MANAGEMENT.UPDATE}/${child?.props?.id}`
+		? `${CHILD_CATEGORIES_MANAGEMENT.UPDATE}/${child?.props?.id}/`
 		: CHILD_CATEGORIES_MANAGEMENT.CREATE;
 
 	const handleSubmit = useMutation<void, Error, CHILD_FORM>({
 		mutationFn: async (value) => {
-			const { error } = await functionInvoke<CHILD_FORM>({
+			const { error, data } = await functionInvoke<CHILD_FORM>({
 				functionName,
 				method: child?.props?.id ? "PUT" : "POST",
 				body: {
 					...value,
-					parentId: Number(getParams(PARAMS.CATEGORY_ID)),
+					parentId: getParams(PARAMS.CATEGORY_ID),
 				},
 			});
 
 			if (error) return error;
 
-			toast.success(
-				child?.props?.id
-					? "Ish kategoriyasi tahrirlandi"
-					: "Ish kategoriasi qo'shildi",
-			);
+			if (data?.success) {
+				toast.success(data?.message);
+			} else {
+				toast.error(data?.message);
+			}
 
 			onRequestClose();
 

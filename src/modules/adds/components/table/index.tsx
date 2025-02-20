@@ -203,6 +203,18 @@ export const AddsTable = () => {
 											Tasdiqlash
 										</DropdownItem>
 										<DropdownItem
+											key="archive"
+											color="warning"
+											isDisabled={el?.status === "REJECTED"}
+											onPress={() => {
+												setModal({
+													archive: { open: true, props: el },
+												});
+											}}
+										>
+											Arxivlash
+										</DropdownItem>
+										<DropdownItem
 											key="reject-"
 											color="danger"
 											className="text-danger"

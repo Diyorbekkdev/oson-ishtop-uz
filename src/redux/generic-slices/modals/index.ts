@@ -43,6 +43,7 @@ export type TUsers = {
 export type TAdds = {
 	reject: { open: boolean; props: any };
 	accept: { open: boolean; props: any };
+	archive: { open: boolean; props: any };
 };
 
 type Modal = {
@@ -93,6 +94,7 @@ const initialState: Modal = {
 	adds: {
 		reject: { open: false, props: null },
 		accept: { open: false, props: null },
+		archive: { open: false, props: null },
 	},
 };
 
