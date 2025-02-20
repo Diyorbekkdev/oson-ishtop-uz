@@ -20,7 +20,10 @@ export const AcceptAdd = () => {
 	return (
 		<Modal isOpen={accept?.open} onClose={onRequestClose} size="xl">
 			<ModalContent>
-				<ModalHeader className="flex flex-col gap-1" title="Ombor qo'shish">
+				<ModalHeader
+					className="flex flex-col gap-1"
+					title="Foydalanuvchini E'lonini Tasdiqlash"
+				>
 					Foydalanuvchini E'lonini Tasdiqlash
 				</ModalHeader>
 				<Divider className="w-full" />

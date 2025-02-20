@@ -1,4 +1,3 @@
-import { DeleteIcon } from "@/assets/icons/global/gloval.icons";
 import { useAddsModals } from "@/modules/adds/store";
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/divider";

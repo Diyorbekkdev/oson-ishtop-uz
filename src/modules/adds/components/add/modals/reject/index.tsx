@@ -46,7 +46,10 @@ export const RejectAdd = () => {
 			size="xl"
 		>
 			<ModalContent>
-				<ModalHeader className="flex flex-col gap-1" title="Ombor qo'shish">
+				<ModalHeader
+					className="flex flex-col gap-1"
+					title="Foydalanuvchini E'lonini rad etish"
+				>
 					Foydalanuvchini E'lonini rad etish
 				</ModalHeader>
 				<Divider className="w-full" />

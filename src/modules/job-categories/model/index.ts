@@ -3,9 +3,9 @@ enum JOB_CATEGORIES_MANAGEMENT {
 	DATA_PARAMS = "ann-job-categories-parent/read",
 	PAGE = "page",
 	PAGE_SIZE = "page_size",
-	CREATE = "ann-job-categories/create-parent",
-	UPDATE = "ann-job-categories/update-parent",
-	REMOVE = "ann-job-categories/delete",
+	CREATE = "ann-job-categories-parent/create",
+	UPDATE = "ann-job-categories-parent/update",
+	REMOVE = "ann-job-categories-parent/delete",
 }
 
 enum CHILD_CATEGORIES_MANAGEMENT {
