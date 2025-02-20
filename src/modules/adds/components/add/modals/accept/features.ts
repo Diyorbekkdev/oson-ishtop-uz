@@ -1,4 +1,5 @@
 import { useHttpRequest } from "@/hooks/useHttpRequest";
+import { useSearchParams } from "@/hooks/useSearchParams";
 import { ADD_STATUS_PARAMS, CONTENT } from "@/modules/adds/model";
 import { useSelectedAddCache } from "@/modules/adds/services";
 import { useAddsModals } from "@/modules/adds/store";
@@ -13,7 +14,8 @@ type AcceptFeatures = {
 
 export const useAcceptFeatures = (): AcceptFeatures => {
 	const { functionInvoke } = useHttpRequest();
-	const { setModal, accept } = useAddsModals();
+	const { setModal } = useAddsModals();
+	const { getParams } = useSearchParams();
 
 	const {
 		data: { refetch },
@@ -22,7 +24,7 @@ export const useAcceptFeatures = (): AcceptFeatures => {
 	const onAccept = useMutation<void, Error, CONTENT>({
 		mutationFn: async () => {
 			const { error, data } = await functionInvoke<CONTENT>({
-				functionName: `${ADD_STATUS_PARAMS?.ACCEPTED}/${accept?.props?.id}`,
+				functionName: `${ADD_STATUS_PARAMS?.ACCEPTED}/${getParams("add_id")}`,
 				method: "POST",
 			});
 

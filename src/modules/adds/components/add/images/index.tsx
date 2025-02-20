@@ -8,7 +8,9 @@ import Zoom from "react-medium-image-zoom";
 const SwiperSlider = () => {
 	const { data } = useSelectedAddCache();
 	const sortedResources =
-		data?.data?.resources?.sort((a, b) => a.ordering - b.ordering) ?? [];
+		(data?.data?.resources &&
+			data?.data?.resources?.sort((a, b) => a?.ordering - b?.ordering)) ??
+		[];
 	return (
 		<div className="flex items-center gap-2  border-2 border-dotted w-full overflow-x-auto rounded-md p-4">
 			{sortedResources?.map((el) => (

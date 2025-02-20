@@ -196,7 +196,7 @@ const SelectedAdd = () => {
 					isDisabled={add?.status === "ACCEPTED"}
 					onPress={() => {
 						setModal({
-							accept: { open: true, props: add },
+							accept: { open: true, props: {} },
 						});
 					}}
 				>
@@ -208,7 +208,7 @@ const SelectedAdd = () => {
 					isDisabled={add?.status === "REJECTED"}
 					onPress={() => {
 						setModal({
-							reject: { open: true, props: add && add },
+							reject: { open: true, props: {} },
 						});
 					}}
 				>
