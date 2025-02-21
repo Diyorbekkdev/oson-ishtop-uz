@@ -1,5 +1,5 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody } from "@heroui/card";
 import { DiscountTable } from "../components/discount-table";
 import Header from "../components/header";
 import { Create } from "../components/modals/create";

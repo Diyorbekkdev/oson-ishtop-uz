@@ -21,13 +21,14 @@ export const useAdminAdds = (): ADDS_CACHE => {
 			salaryFrom: getParams("priceFrom"),
 			salaryTo: getParams("priceTo"),
 			salary: getParams("salary"),
+			sortDirection: getParams("sort"),
 		}),
 		[getParams],
 	);
 
 	const data = useQuery({
 		queryKey: [
-			`${ADDS_MANAGEMENT.DATA_KEY}?size=${queryParams.pageSize}&page=${queryParams.page}&status=${queryParams.tab}&salaryFrom=${queryParams.salaryFrom}&salaryTo=${queryParams.salaryTo}&salary=${queryParams.salary}`,
+			`${ADDS_MANAGEMENT.DATA_KEY}?size=${queryParams.pageSize}&page=${queryParams.page}&status=${queryParams.tab}&salaryFrom=${queryParams.salaryFrom}&salaryTo=${queryParams.salaryTo}&salary=${queryParams.salary}&sortDirection=${queryParams.sortDirection}`,
 		],
 		queryFn: async () => {
 			const { data } = await functionInvoke<{ data: DATA }>({
@@ -40,6 +41,7 @@ export const useAdminAdds = (): ADDS_CACHE => {
 					salaryFrom: queryParams.salaryFrom,
 					salaryTo: queryParams.salaryTo,
 					salary: queryParams.salary,
+					sortDirection: queryParams.sortDirection,
 				},
 			});
 			return data?.data;

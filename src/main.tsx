@@ -1,6 +1,6 @@
 import store from "@/redux";
-import { Spinner } from "@nextui-org/spinner";
-import { NextUIProvider } from "@nextui-org/system";
+import { Spinner } from "@heroui/spinner";
+import { HeroUIProvider } from "@heroui/system";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
@@ -53,11 +53,11 @@ export const GlobalWrapper: React.FC<{ children: ReactNode }> = ({
 							<QueryClientProvider client={queryClient}>
 								<ReactQueryDevtools />
 								<AuthEventProvider>
-									<NextUIProvider>
+									<HeroUIProvider>
 										<NextThemesProvider attribute="class" defaultTheme="dark">
 											{children}
 										</NextThemesProvider>
-									</NextUIProvider>
+									</HeroUIProvider>
 								</AuthEventProvider>
 							</QueryClientProvider>
 						</Provider>

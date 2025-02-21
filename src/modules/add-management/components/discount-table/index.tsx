@@ -1,8 +1,8 @@
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatNumber } from "@/utils/format-number";
-import { Chip } from "@nextui-org/chip";
-import { Spinner } from "@nextui-org/spinner";
+import { Chip } from "@heroui/chip";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -10,8 +10,8 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
 import {
 	calculateDiscountedPricePerDay,
 	calculateDiscountedTotalPrice,
@@ -20,7 +20,6 @@ import { PARAMS } from "../../model";
 import { useAddManagementCache } from "../../services";
 import { useAddManagementModals } from "../../store";
 import { useAddManagementTab } from "../../store/tabs.store";
-import { BottomContent } from "../pagination";
 import Header from "./table.header";
 
 const columns = [
@@ -35,7 +34,7 @@ const columns = [
 ];
 
 export const DiscountTable = () => {
-	const { setParams, getParams } = useSearchParams();
+	const { getParams } = useSearchParams();
 	const {
 		discount: { data, isLoading },
 	} = useAddManagementCache();
@@ -56,13 +55,6 @@ export const DiscountTable = () => {
 				th: "first:w-[50px]",
 			}}
 			topContent={<Header />}
-			bottomContent={
-				<BottomContent
-					page={Number(data?.pageable?.pageNumber ?? 0) + 1}
-					setPage={(e) => setParams({ page: String(e) })}
-					pages={Number(data?.totalPages)}
-				/>
-			}
 		>
 			<TableHeader columns={columns}>
 				{(column) => (

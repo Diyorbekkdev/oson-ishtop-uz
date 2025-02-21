@@ -1,10 +1,10 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { PARAMS, RESOURCE_PARAM } from "@/modules/users/model";
 import { useUsersTab } from "@/modules/users/store/tab.store";
-import { Divider } from "@nextui-org/divider";
+import { Divider } from "@heroui/divider";
 
-import { Select, SelectItem } from "@nextui-org/select";
-import { User } from "@nextui-org/user";
+import { Select, SelectItem } from "@heroui/select";
+import { User } from "@heroui/user";
 import Zoom from "react-medium-image-zoom";
 
 export const TableHeaderComponent = () => {

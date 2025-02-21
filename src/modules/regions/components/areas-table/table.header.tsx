@@ -1,6 +1,6 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
 import { PARAMS } from "../../model";
 import { useRegionsModals } from "../../store";
 import { useAreasTab } from "../../store/tab.store";

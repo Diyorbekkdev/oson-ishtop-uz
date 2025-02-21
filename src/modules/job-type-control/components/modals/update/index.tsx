@@ -2,17 +2,17 @@ import { useSearchParams } from "@/hooks/useSearchParams";
 import { JOB_TYPE_CONTROL_FORM } from "@/modules/job-type-control/model";
 import { jobTypeControlSchema } from "@/modules/job-type-control/model/validations";
 import { useJobTypeControlModals } from "@/modules/job-type-control/store";
-import { Button } from "@nextui-org/button";
-import { Checkbox } from "@nextui-org/checkbox";
-import { Divider } from "@nextui-org/divider";
-import { Input } from "@nextui-org/input";
+import { Button } from "@heroui/button";
+import { Checkbox } from "@heroui/checkbox";
+import { Divider } from "@heroui/divider";
+import { Input } from "@heroui/input";
 import {
 	Modal,
 	ModalBody,
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import { standardSchemaValidator, useForm } from "@tanstack/react-form";
 import { ZodValidator } from "@tanstack/zod-form-adapter";
 import { useCreateAddFeatures } from "./feature";

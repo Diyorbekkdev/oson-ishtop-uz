@@ -1,10 +1,10 @@
 import { EyeSlash } from "@/assets/icons/global/gloval.icons";
 import { EyeIcon, UserIcon } from "@/assets/icons/signin.icons";
-import { Button } from "@nextui-org/button";
-import { Card, CardHeader } from "@nextui-org/card";
-import { Checkbox } from "@nextui-org/checkbox";
-import { Image } from "@nextui-org/image";
-import { Input } from "@nextui-org/input";
+import { Button } from "@heroui/button";
+import { Card, CardHeader } from "@heroui/card";
+import { Checkbox } from "@heroui/checkbox";
+import { Image } from "@heroui/image";
+import { Input } from "@heroui/input";
 import { useForm } from "@tanstack/react-form";
 import { ZodValidator, zodValidator } from "@tanstack/zod-form-adapter";
 import { useState } from "react";

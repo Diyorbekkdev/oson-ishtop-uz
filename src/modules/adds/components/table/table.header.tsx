@@ -1,7 +1,16 @@
+import { ChevronDownIcon } from "@/assets/icons/sidebar/chevrow-down.icon";
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Divider } from "@nextui-org/divider";
-import { Slider } from "@nextui-org/slider";
-import { Tab, Tabs } from "@nextui-org/tabs";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
+import {
+	Dropdown,
+	DropdownItem,
+	DropdownMenu,
+	DropdownTrigger,
+} from "@heroui/dropdown";
+import { Slider } from "@heroui/slider";
+import { Tab, Tabs } from "@heroui/tabs";
+import { capitalize } from "lodash";
 import { useState } from "react";
 
 const headerLabel = {
@@ -12,6 +21,11 @@ const headerLabel = {
 	REJECTED: "Rad etilgan E'lonlar",
 	ARCHIVE: "Arxivlangan E'lonlar",
 };
+
+const statusOptions = [
+	{ name: "ASCENDING", uid: "ASCENDING" },
+	{ name: "DESCENDING", uid: "DESCENDING" },
+];
 
 export const TableHeaderComponent = () => {
 	const { getParams, setParams } = useSearchParams();
@@ -30,7 +44,41 @@ export const TableHeaderComponent = () => {
 						(getParams("tab") as keyof typeof headerLabel) ?? "ALL"
 					] ?? "Barcha E'lonlar"}
 				</div>
-				<div className="flex items-center gap-4 basis-[30%]">
+				<div className="flex items-center gap-4 basis-[35%]">
+					<div>
+						<Dropdown>
+							<DropdownTrigger className="hidden sm:flex">
+								<Button
+									endContent={<ChevronDownIcon className="text-small" />}
+									variant="flat"
+								>
+									Sort{" "}
+									{statusOptions.find(
+										(status) => status.uid === getParams("sort"),
+									)?.name ?? ""}
+								</Button>
+							</DropdownTrigger>
+							<DropdownMenu
+								disallowEmptySelection
+								aria-label="Table Columns"
+								closeOnSelect={false}
+								selectedKeys={[getParams("sort") ?? ""] as any}
+								selectionMode="single"
+								// onSelectionChange={(e: any) => {
+								//   setParams({ sort: String(e.currentKey) });
+								// }}
+								onSelectionChange={(e: any) => {
+									setParams({ sort: String(e.currentKey) });
+								}}
+							>
+								{statusOptions.map((status) => (
+									<DropdownItem key={status.uid} className="capitalize">
+										{capitalize(status.name)}
+									</DropdownItem>
+								))}
+							</DropdownMenu>
+						</Dropdown>
+					</div>
 					<Slider
 						className="max-w-md"
 						defaultValue={priceRange}
@@ -55,7 +103,7 @@ export const TableHeaderComponent = () => {
 						<Tabs
 							color="success"
 							selectedKey={getParams("salary") ?? "UZS"}
-							onSelectionChange={(key) => {
+							onSelectionChange={(key: any) => {
 								setParams({
 									salary: String(key),
 								});

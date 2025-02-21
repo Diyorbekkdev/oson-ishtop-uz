@@ -1,8 +1,8 @@
 import { RESOURCE_PARAM } from "@/modules/adds/model";
 import { useSelectedAddCache } from "@/modules/adds/services";
-import { Button } from "@nextui-org/button";
-import { Card, CardFooter } from "@nextui-org/card";
-import { Image } from "@nextui-org/image";
+import { Button } from "@heroui/button";
+import { Card, CardFooter } from "@heroui/card";
+import { Image } from "@heroui/image";
 import Zoom from "react-medium-image-zoom";
 
 const SwiperSlider = () => {

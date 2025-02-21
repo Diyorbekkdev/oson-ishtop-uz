@@ -1,5 +1,5 @@
 import { useSelectedAddCache } from "@/modules/adds/services";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -7,7 +7,7 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
+} from "@heroui/table";
 const columns = [
 	{ name: "Kompaniya nomi", uid: "company" },
 	{ name: "Ish turi", uid: "jobTypesName" },

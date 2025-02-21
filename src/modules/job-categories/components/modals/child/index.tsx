@@ -1,16 +1,16 @@
 import { useJobCategoriesModals } from "@/modules/job-categories/store";
 import { AREAS_FORM } from "@/modules/regions/model";
 import { areaSchema } from "@/modules/regions/model/validations";
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
-import { Input } from "@nextui-org/input";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
+import { Input } from "@heroui/input";
 import {
 	Modal,
 	ModalBody,
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import { standardSchemaValidator, useForm } from "@tanstack/react-form";
 import { ZodValidator } from "@tanstack/zod-form-adapter";
 import { useChildModalFeatures } from "./features";

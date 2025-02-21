@@ -1,7 +1,7 @@
 import { EditIcon } from "@/assets/icons/global/gloval.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -9,8 +9,8 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
 import classNames from "classnames";
 
 import { useAdminUserTransactionsCache } from "@/modules/users/services";
@@ -25,7 +25,7 @@ import { TableHeaderComponent } from "./table.header";
 import cash from "@/assets/images/cash.png";
 import click from "@/assets/images/click.png";
 import payme from "@/assets/images/payme.png";
-import { Image } from "@nextui-org/image";
+import { Image } from "@heroui/image";
 
 const columns = [
 	{ name: "№", uid: "order" },

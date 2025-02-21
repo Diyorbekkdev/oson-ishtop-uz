@@ -1,6 +1,6 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Pagination } from "@nextui-org/pagination";
-import { Select, SelectItem } from "@nextui-org/select";
+import { Pagination } from "@heroui/pagination";
+import { Select, SelectItem } from "@heroui/select";
 import { memo } from "react";
 
 type TPagination = {

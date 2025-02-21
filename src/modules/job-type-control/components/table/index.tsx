@@ -1,8 +1,9 @@
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
-import { Chip } from "@nextui-org/chip";
-import { Spinner } from "@nextui-org/spinner";
+import { Chip } from "@heroui/chip";
+import { Snippet } from "@heroui/snippet";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -10,8 +11,8 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
 import { useJobTypeControlCache } from "../../services";
 import { useJobTypeControlModals } from "../../store";
 import { BottomContent } from "../pagination";
@@ -19,6 +20,7 @@ import { JobTypeControlHeader } from "./table.header";
 
 const columns = [
 	{ name: "№", uid: "order" },
+	{ name: "ID", uid: "id" },
 	{ name: "Nomi (UZ)", uid: "name_uz" },
 	{ name: "Nomi (RU)", uid: "name_ru" },
 	{ name: "Nomui (ENG)", uid: "name_eng" },
@@ -77,6 +79,9 @@ export const JobTypeControlTable = () => {
 								Number(data?.pageable?.pageSize) +
 								index +
 								1}
+						</TableCell>
+						<TableCell style={{ width: "20px" }}>
+							<Snippet symbol="">{el?.id}</Snippet>
 						</TableCell>
 						<TableCell>{el?.nameUz}</TableCell>
 						<TableCell>{el?.nameRu}</TableCell>

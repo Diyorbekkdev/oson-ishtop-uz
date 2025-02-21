@@ -1,5 +1,5 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody } from "@heroui/card";
 import Header from "../components/header";
 import { FreezeTransaction } from "../components/modals/freeze-transactions";
 import { Remove } from "../components/modals/remove";

@@ -1,22 +1,22 @@
 import { EyeIcon } from "@/assets/icons/signin.icons";
 import { RESOURCE_PARAM } from "@/modules/users/model";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { Button } from "@nextui-org/button";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Chip } from "@nextui-org/chip";
-import { Divider } from "@nextui-org/divider";
+import { Accordion, AccordionItem } from "@heroui/accordion";
+import { Button } from "@heroui/button";
+import { Card, CardBody, CardHeader } from "@heroui/card";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
 import {
 	Drawer,
 	DrawerBody,
 	DrawerContent,
 	DrawerFooter,
 	DrawerHeader,
-} from "@nextui-org/drawer";
-import { Image } from "@nextui-org/image";
-import { useDisclosure } from "@nextui-org/modal";
-import { Snippet } from "@nextui-org/snippet";
-import { Spinner } from "@nextui-org/spinner";
-import { User } from "@nextui-org/user";
+} from "@heroui/drawer";
+import { Image } from "@heroui/image";
+import { useDisclosure } from "@heroui/modal";
+import { Snippet } from "@heroui/snippet";
+import { Spinner } from "@heroui/spinner";
+import { User } from "@heroui/user";
 import { generateStatus } from "../../model";
 import { useSelectedAddCache } from "../../services";
 import { useAddsModals } from "../../store";

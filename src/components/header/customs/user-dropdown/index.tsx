@@ -4,8 +4,8 @@ import {
 	DropdownItem,
 	DropdownMenu,
 	DropdownTrigger,
-} from "@nextui-org/dropdown";
-import { User } from "@nextui-org/user";
+} from "@heroui/dropdown";
+import { User } from "@heroui/user";
 import { useQueryClient } from "@tanstack/react-query";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
 

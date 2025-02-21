@@ -4,7 +4,7 @@ import JobTypeControl from "..";
 export const JobTypeControlRoutes = [
 	{
 		path: "/job-type-control",
-		title: "Job Type Control",
+		title: "Bandlik turlarini boshqarish",
 		element: <JobTypeControl />,
 		icon: <HomeIcon />,
 		id: 1,

@@ -2,14 +2,14 @@ import { ChevronDownIcon } from "@/assets/icons/sidebar/chevrow-down.icon";
 import { CopyDocumentIcon } from "@/assets/icons/sidebar/copy-document.icon";
 import { useReduxSelector } from "@/hooks/useRedux";
 import { TRoutes } from "@/types/routes";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { Button } from "@nextui-org/button";
+import { Accordion, AccordionItem } from "@heroui/accordion";
+import { Button } from "@heroui/button";
 import {
 	Dropdown,
 	DropdownItem,
 	DropdownMenu,
 	DropdownTrigger,
-} from "@nextui-org/dropdown";
+} from "@heroui/dropdown";
 import { memo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 

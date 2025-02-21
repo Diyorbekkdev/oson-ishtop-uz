@@ -1,5 +1,5 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody } from "@heroui/card";
 import SelectedAdd from "../components/add";
 import Header from "../components/header";
 import { AcceptAdd } from "../components/modals/accept";

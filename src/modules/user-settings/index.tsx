@@ -1,6 +1,6 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@nextui-org/modal";
-import { Tab, Tabs } from "@nextui-org/tabs";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/modal";
+import { Tab, Tabs } from "@heroui/tabs";
 import Profile from "./profile";
 import Security from "./security";
 

@@ -1,4 +1,4 @@
-const { nextui } = require("@nextui-org/theme");
+const { heroui } = require("@heroui/theme");
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: ["class"],
@@ -7,7 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
-		"./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|button|calendar|card|chip|date-picker|divider|drawer|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|slider|snippet|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js",
+		"./node_modules/@heroui/theme/dist/components/(accordion|avatar|badge|button|calendar|card|chip|date-picker|divider|drawer|dropdown|image|input|menu|modal|navbar|pagination|popover|select|skeleton|slider|snippet|spacer|spinner|toggle|table|tabs|user|ripple|date-input|form|listbox|scroll-shadow|checkbox).js",
 	],
 	theme: {
 		extend: {
@@ -89,5 +89,5 @@ export default {
 			},
 		},
 	},
-	plugins: [nextui(), require("tailwindcss-animate")],
+	plugins: [heroui(), require("tailwindcss-animate")],
 };

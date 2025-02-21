@@ -4,7 +4,7 @@ import AddManagement from "..";
 export const AddManagementRoute = [
 	{
 		path: "/add-management",
-		title: "E'lon Boshqaruvi",
+		title: "E'lon Turlari",
 		element: <AddManagement />,
 		icon: <HomeIcon />,
 		id: 1,

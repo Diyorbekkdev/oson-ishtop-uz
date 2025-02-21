@@ -3,16 +3,16 @@ import { VerticalDotsIcon } from "@/assets/icons/vertical-dots.icon";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
 import { formatNumber } from "@/utils/format-number";
-import { Button } from "@nextui-org/button";
-import { Chip } from "@nextui-org/chip";
+import { Button } from "@heroui/button";
+import { Chip } from "@heroui/chip";
 import {
 	Dropdown,
 	DropdownItem,
 	DropdownMenu,
 	DropdownTrigger,
-} from "@nextui-org/dropdown";
-import { Snippet } from "@nextui-org/snippet";
-import { Spinner } from "@nextui-org/spinner";
+} from "@heroui/dropdown";
+import { Snippet } from "@heroui/snippet";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -20,8 +20,8 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
 import { generateStatus } from "../../model";
 import { useAdminAdds } from "../../services";
 import { useAddsModals } from "../../store";
@@ -32,11 +32,12 @@ import { TableHeaderComponent } from "./table.header";
 const columns = [
 	{ name: "№", uid: "order" },
 	// { name: "E'lon rasmlari", uid: "img" },
+	{ name: "ID", uid: "id" },
 	{ name: "E'lon kodi", uid: "code" },
 	{ name: "Ish nomi", uid: "jobName" },
 	{ name: "Kompaniya", uid: "company" },
 	{ name: "Ko'rishlar soni", uid: "viewcount" },
-	{ name: "Foydalanuvchi Jinsi", uid: "gender" },
+	//   { name: "Foydalanuvchi Jinsi", uid: "gender" },
 	{ name: "Sinov muddati bormi?", uid: "isThereTrialPeriod" },
 	{ name: "Sinov muddati", uid: "trialPeriod" },
 	{ name: "Status", uid: "status" },
@@ -114,6 +115,11 @@ export const AddsTable = () => {
               </Zoom>
             </TableCell> */}
 						<TableCell>
+							<Snippet symbol="">
+								<span className="whitespace-pre-wrap">{el?.id}</span>
+							</Snippet>
+						</TableCell>
+						<TableCell>
 							{
 								<Snippet
 									color="warning"
@@ -128,16 +134,16 @@ export const AddsTable = () => {
 						<TableCell>{el?.jobName ?? "➖➖➖"}</TableCell>
 						<TableCell>{el?.company ?? "➖➖➖"}</TableCell>
 						<TableCell>{formatNumber(el?.viewCnt ?? 0)}</TableCell>
-						<TableCell>
-							{
-								<Chip
-									color={el?.gender === "MALE" ? "success" : "danger"}
-									variant="bordered"
-								>
-									{el?.gender === "MALE" ? "Erkak" : "Ayol"}
-								</Chip>
-							}
-						</TableCell>
+						{/* <TableCell>
+              {
+                <Chip
+                  color={el?.gender === "MALE" ? "success" : "danger"}
+                  variant="bordered"
+                >
+                  {el?.gender === "MALE" ? "Erkak" : "Ayol"}
+                </Chip>
+              }
+            </TableCell> */}
 						<TableCell>
 							{
 								<Chip

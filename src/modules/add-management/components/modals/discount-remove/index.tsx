@@ -1,14 +1,14 @@
 import { DeleteIcon } from "@/assets/icons/global/gloval.icons";
 import { useAddManagementModals } from "@/modules/add-management/store";
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
 import {
 	Modal,
 	ModalBody,
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import { useRemoveAddFeatures } from "./features";
 
 export const RemoveDiscount = () => {

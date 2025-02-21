@@ -1,5 +1,5 @@
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
 import { useAddManagementModals } from "../../store";
 
 export const AddManagementHeader = () => {
@@ -7,14 +7,14 @@ export const AddManagementHeader = () => {
 	return (
 		<>
 			<div className="flex items-center justify-between">
-				<span className="text-3xl font-[600]">E'lonlar</span>
+				<span className="text-3xl font-[600]">E'lon Turlari</span>
 				<Button
 					color="success"
 					onPress={() => {
 						setModal({ create: { open: true, props: null } });
 					}}
 				>
-					E'lon qo'shish
+					E'lon Turini qo'shish
 				</Button>
 			</div>
 			<Divider />

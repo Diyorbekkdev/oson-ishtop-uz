@@ -1,8 +1,8 @@
 import ClearIcon from "@/assets/icons/clear.icon";
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Button } from "@nextui-org/button";
-import { Tab, Tabs } from "@nextui-org/tabs";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Button } from "@heroui/button";
+import { Tab, Tabs } from "@heroui/tabs";
+import { Tooltip } from "@heroui/tooltip";
 import { PARAMS } from "../../model";
 import { useUsersTab } from "../../store/tab.store";
 

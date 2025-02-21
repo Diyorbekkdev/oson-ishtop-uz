@@ -1,6 +1,6 @@
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Divider } from "@nextui-org/divider";
-import { Input } from "@nextui-org/input";
+import { Divider } from "@heroui/divider";
+import { Input } from "@heroui/input";
 
 export const TableHeaderComponent = () => {
 	const { setParams, getParams } = useSearchParams();

@@ -1,17 +1,17 @@
-import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
+import { DeleteIcon } from "@/assets/icons/global/gloval.icons";
 import { EyeIcon } from "@/assets/icons/signin.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
 import { formatNumber } from "@/utils/format-number";
-import { Chip } from "@nextui-org/chip";
+import { Chip } from "@heroui/chip";
 import {
 	Dropdown,
 	DropdownItem,
 	DropdownMenu,
 	DropdownTrigger,
-} from "@nextui-org/dropdown";
-import { Snippet } from "@nextui-org/snippet";
-import { Spinner } from "@nextui-org/spinner";
+} from "@heroui/dropdown";
+import { Snippet } from "@heroui/snippet";
+import { Spinner } from "@heroui/spinner";
 import {
 	Selection,
 	Table,
@@ -20,9 +20,9 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
-import { User } from "@nextui-org/user";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
+import { User } from "@heroui/user";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Zoom from "react-medium-image-zoom";
@@ -36,11 +36,12 @@ import { TableHeaderComponent } from "./table.header";
 
 const columns = [
 	{ name: "№", uid: "order" },
+	{ name: "ID", uid: "id" },
 	{ name: "Foydalanuvchi Rasmi", uid: "avatar" },
 	{ name: "Foydalanuvchi FIO", uid: "fio" },
 	{ name: "Foydalanuvchi Telefon raqami", uid: "phone" },
-	{ name: "Foydalanuvchi Jinsi", uid: "gender" },
 	{ name: "Foydalanilayotgan til", uid: "language" },
+	//   { name: "Foydalanuvchi Jinsi", uid: "gender" },
 	{ name: "Balans Status", uid: "balance_status" },
 	{ name: "Foydalanuvchi balansi", uid: "balance" },
 	{ name: "Foydalanuvchi Tug'ilgan Sana", uid: "birthDate" },
@@ -134,6 +135,11 @@ export const UsersTable = () => {
 								1}
 						</TableCell>
 						<TableCell>
+							<Snippet symbol="">
+								<span className="whitespace-pre-wrap">{el?.id}</span>
+							</Snippet>
+						</TableCell>
+						<TableCell>
 							<Zoom>
 								<User
 									as="button"
@@ -165,16 +171,16 @@ export const UsersTable = () => {
 							)}
 						</TableCell>
 						<TableCell>{el?.language ?? "➖➖➖"}</TableCell>
-						<TableCell>
-							{
-								<Chip
-									color={el?.gender === "MALE" ? "success" : "danger"}
-									variant="bordered"
-								>
-									{el?.gender === "MALE" ? "Erkak" : "Ayol"}
-								</Chip>
-							}
-						</TableCell>
+						{/* <TableCell>
+              {
+                <Chip
+                  color={el?.gender === "MALE" ? "success" : "danger"}
+                  variant="bordered"
+                >
+                  {el?.gender === "MALE" ? "Erkak" : "Ayol"}
+                </Chip>
+              }
+            </TableCell> */}
 						<TableCell>
 							<Dropdown>
 								<DropdownTrigger className="capitalize" variant="bordered">
@@ -250,22 +256,6 @@ export const UsersTable = () => {
 										className="text-lg text-default-400 cursor-pointer active:opacity-50"
 									>
 										<EyeIcon />
-									</span>
-								</Tooltip>
-								<Tooltip content="Foydalanuvchini tahrirlash">
-									<span
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
-											setModal({
-												update: {
-													open: true,
-													props: { ...el },
-												},
-											});
-										}}
-									>
-										<EditIcon stroke="currentColor" />
 									</span>
 								</Tooltip>
 								<Tooltip color="danger" content="Foydalanuvchini o'chirish">

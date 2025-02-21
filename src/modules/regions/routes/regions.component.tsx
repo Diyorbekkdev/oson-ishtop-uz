@@ -1,4 +1,4 @@
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody } from "@heroui/card";
 
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { AreasTable } from "../components/areas-table";

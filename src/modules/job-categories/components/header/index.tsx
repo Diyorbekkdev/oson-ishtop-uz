@@ -1,8 +1,8 @@
 import ClearIcon from "@/assets/icons/clear.icon";
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Button } from "@nextui-org/button";
-import { Tab, Tabs } from "@nextui-org/tabs";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Button } from "@heroui/button";
+import { Tab, Tabs } from "@heroui/tabs";
+import { Tooltip } from "@heroui/tooltip";
 import { PARAMS } from "../../model";
 import { useCategoriesTab } from "../../store/tab.store";
 
@@ -15,7 +15,7 @@ const Header = () => {
 
 		if (getParams(PARAMS.CATEGORY_ID)) {
 			if (shouldRedirect) {
-				setParams({ regionId: shouldRedirect?.id });
+				setParams({ categoryId: shouldRedirect?.id });
 			} else {
 				removeParamsByKey({ keys: [PARAMS.CATEGORY_ID] });
 			}
@@ -54,7 +54,7 @@ const Header = () => {
 							<div
 								className="flex items-center gap-8"
 								onClick={() => {
-									setParams({ regionId: item.id });
+									setParams({ categoryId: item.id });
 								}}
 							>
 								<Tooltip content={item?.title}>

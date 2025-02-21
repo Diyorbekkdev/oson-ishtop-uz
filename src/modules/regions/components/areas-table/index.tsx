@@ -1,6 +1,7 @@
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
-import { Spinner } from "@nextui-org/spinner";
+import { Snippet } from "@heroui/snippet";
+import { Spinner } from "@heroui/spinner";
 import {
 	Table,
 	TableBody,
@@ -8,8 +9,8 @@ import {
 	TableColumn,
 	TableHeader,
 	TableRow,
-} from "@nextui-org/table";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { Tooltip } from "@heroui/tooltip";
 import { useAddManagementCache } from "../../services";
 import { useRegionsModals } from "../../store";
 import { useAreasTab } from "../../store/tab.store";
@@ -18,6 +19,7 @@ import Header from "./table.header";
 
 const columns = [
 	{ name: "№", uid: "order" },
+	{ name: "ID", uid: "id" },
 	{ name: "Nomi (UZ)", uid: "name_uz" },
 	{ name: "Nomi (RU)", uid: "name_ru" },
 	{ name: "Nomui (ENG)", uid: "name_eng" },
@@ -78,6 +80,9 @@ export const AreasTable = () => {
 								Number(data?.pageable?.pageSize) +
 								index +
 								1}
+						</TableCell>
+						<TableCell style={{ width: "20px" }}>
+							<Snippet symbol="">{el?.id}</Snippet>
 						</TableCell>
 						<TableCell>{el?.nameUz}</TableCell>
 						<TableCell>{el?.nameRu}</TableCell>

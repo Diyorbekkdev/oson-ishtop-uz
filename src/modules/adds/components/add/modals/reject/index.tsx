@@ -1,16 +1,16 @@
 import { DeleteIcon } from "@/assets/icons/global/gloval.icons";
 import { REJECT_FORM } from "@/modules/adds/model";
 import { useAddsModals } from "@/modules/adds/store";
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
-import { Textarea } from "@nextui-org/input";
+import { Button } from "@heroui/button";
+import { Divider } from "@heroui/divider";
+import { Textarea } from "@heroui/input";
 import {
 	Modal,
 	ModalBody,
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import { standardSchemaValidator, useForm } from "@tanstack/react-form";
 import { ZodValidator } from "@tanstack/zod-form-adapter";
 import { useRejectFeatures } from "./features";
