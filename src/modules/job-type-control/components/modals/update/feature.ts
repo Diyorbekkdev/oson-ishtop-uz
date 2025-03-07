@@ -50,7 +50,9 @@ export const useCreateAddFeatures = (): TCreateAddFeatures => {
 					},
 				).title,
 			);
-			onRequestClose();
+			setModal({
+				update: { open: false, props: null },
+			});
 			queryClient.refetchQueries({
 				queryKey: [`${JOB_TYPE_CONTROL.DATA_KEY}?10=${pageSize}&page=${page}`],
 			});

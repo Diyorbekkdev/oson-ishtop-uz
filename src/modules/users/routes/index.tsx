@@ -4,7 +4,7 @@ import UsersPage from "./users.component";
 export const UsersRoutes = [
 	{
 		path: "/users",
-		title: "Users",
+		title: "Foydalanuvchilar",
 		element: <UsersPage />,
 		icon: <HomeIcon />,
 		id: 1,

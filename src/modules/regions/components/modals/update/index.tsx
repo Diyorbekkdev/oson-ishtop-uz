@@ -31,6 +31,7 @@ export const Update = () => {
 		},
 		onSubmit: async (values) => {
 			await mutateAsync(values?.value);
+			form.reset();
 		},
 		validatorAdapter: standardSchemaValidator(),
 		validators: {

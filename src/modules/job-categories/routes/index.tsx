@@ -4,7 +4,7 @@ import JobCategoriesPage from "./job-categories.component";
 export const JobCategoriesRoute = [
 	{
 		path: "/job-categories",
-		title: "Ann Job Categories",
+		title: "Ish kategoriyalari",
 		element: <JobCategoriesPage />,
 		icon: <HomeIcon />,
 		id: 1,

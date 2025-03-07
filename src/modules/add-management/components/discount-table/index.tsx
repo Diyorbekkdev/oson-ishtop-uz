@@ -1,6 +1,7 @@
 import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatNumber } from "@/utils/format-number";
+import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import { Spinner } from "@heroui/spinner";
 import {
@@ -129,10 +130,9 @@ export const DiscountTable = () => {
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
 								<Tooltip content="Chegirmani tahrirlash">
-									<span
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												discount: {
 													open: true,
@@ -142,13 +142,12 @@ export const DiscountTable = () => {
 										}}
 									>
 										<EditIcon stroke="currentColor" />
-									</span>
+									</Button>
 								</Tooltip>
 								<Tooltip color="danger" content="Chegirmani o'chirish">
-									<span
-										className="text-lg text-danger cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												discount_remove: {
 													open: true,
@@ -157,8 +156,9 @@ export const DiscountTable = () => {
 											});
 										}}
 									>
+										{" "}
 										<DeleteIcon color="#ff2323" />
-									</span>
+									</Button>
 								</Tooltip>
 							</div>
 						</TableCell>

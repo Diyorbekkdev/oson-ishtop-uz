@@ -2,6 +2,7 @@ import { DeleteIcon, EditIcon } from "@/assets/icons/global/gloval.icons";
 import { EyeIcon } from "@/assets/icons/signin.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
+import { Button } from "@heroui/button";
 import { Snippet } from "@heroui/snippet";
 import { Spinner } from "@heroui/spinner";
 import {
@@ -94,9 +95,8 @@ export const RegionsTable = () => {
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
 								<Tooltip content="Details">
-									<span
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										onPress={() => {
 											setParams({ regionId: String(el?.id) });
 											addTab({
 												id: String(el?.id),
@@ -104,16 +104,15 @@ export const RegionsTable = () => {
 												info: el?.pricePerDay,
 											});
 										}}
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
+										isIconOnly
 									>
 										<EyeIcon />
-									</span>
+									</Button>
 								</Tooltip>
 								<Tooltip content="E'lonni tahrirlash">
-									<span
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												update: {
 													open: true,
@@ -123,13 +122,12 @@ export const RegionsTable = () => {
 										}}
 									>
 										<EditIcon stroke="currentColor" />
-									</span>
+									</Button>
 								</Tooltip>
 								<Tooltip color="danger" content="E'lonni o'chirish">
-									<span
-										className="text-lg text-danger cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												remove: {
 													open: true,
@@ -139,7 +137,7 @@ export const RegionsTable = () => {
 										}}
 									>
 										<DeleteIcon color="#ff2323" />
-									</span>
+									</Button>
 								</Tooltip>
 							</div>
 						</TableCell>

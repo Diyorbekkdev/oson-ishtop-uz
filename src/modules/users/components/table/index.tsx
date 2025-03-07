@@ -3,6 +3,7 @@ import { EyeIcon } from "@/assets/icons/signin.icons";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { formatDate } from "@/utils/date-formatting";
 import { formatNumber } from "@/utils/format-number";
+import { Button } from "@heroui/button";
 import { Chip } from "@heroui/chip";
 import {
 	Dropdown,
@@ -243,9 +244,9 @@ export const UsersTable = () => {
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
 								<Tooltip content="Foydalanuvchini ko'rish.">
-									<span
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setParams({ userId: String(el?.id), page: "1" });
 											addTab({
 												id: String(el?.id),
@@ -253,16 +254,14 @@ export const UsersTable = () => {
 												info: { ...el },
 											});
 										}}
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
 									>
 										<EyeIcon />
-									</span>
+									</Button>
 								</Tooltip>
 								<Tooltip color="danger" content="Foydalanuvchini o'chirish">
-									<span
-										className="text-lg text-danger cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												remove: {
 													open: true,
@@ -272,7 +271,7 @@ export const UsersTable = () => {
 										}}
 									>
 										<DeleteIcon color="#ff2323" />
-									</span>
+									</Button>
 								</Tooltip>
 							</div>
 						</TableCell>

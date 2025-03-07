@@ -25,6 +25,7 @@ import { TableHeaderComponent } from "./table.header";
 import cash from "@/assets/images/cash.png";
 import click from "@/assets/images/click.png";
 import payme from "@/assets/images/payme.png";
+import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 
 const columns = [
@@ -126,10 +127,9 @@ export const UserTransactions = () => {
 						<TableCell>
 							<div className="relative flex items-center gap-2 justify-end">
 								<Tooltip content="Tahrirlash">
-									<span
-										className="text-lg text-default-400 cursor-pointer active:opacity-50"
-										onClick={(e) => {
-											e.stopPropagation();
+									<Button
+										isIconOnly
+										onPress={() => {
 											setModal({
 												update: {
 													open: true,
@@ -139,7 +139,7 @@ export const UserTransactions = () => {
 										}}
 									>
 										<EditIcon stroke="currentColor" />
-									</span>
+									</Button>
 								</Tooltip>
 							</div>
 						</TableCell>
